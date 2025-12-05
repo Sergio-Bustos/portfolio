@@ -19,5 +19,16 @@ Frontend:
 - Bootstrap: Framework responsive para mejorar la navegacion y la facilidad de hacerlo sin mucho CSS3
 
 
+🔥 Resultados;
+
+<img width="1018" height="725" alt="image" src="https://github.com/user-attachments/assets/4844d7aa-3964-42f6-a8e4-9f85f0bc3d53" />
+
+<img width="928" height="910" alt="image" src="https://github.com/user-attachments/assets/88a83a94-f281-47ca-afad-428bedecb0a5" />
+
+<img width="959" height="678" alt="image" src="https://github.com/user-attachments/assets/7cb41fbf-5c77-4035-a3be-70fb572cf264" />
+
+<img width="1001" height="894" alt="image" src="https://github.com/user-attachments/assets/00f09431-e571-404a-918b-95a9aa91f561" />
+
+
 
 
