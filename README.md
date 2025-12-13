@@ -25,10 +25,9 @@ Frontend:
 
 <img width="928" height="910" alt="image" src="https://github.com/user-attachments/assets/88a83a94-f281-47ca-afad-428bedecb0a5" />
 
-<img width="959" height="678" alt="image" src="https://github.com/user-attachments/assets/7cb41fbf-5c77-4035-a3be-70fb572cf264" />
+<img width="1076" height="806" alt="image" src="https://github.com/user-attachments/assets/fb3a37d3-127e-43c9-9fe8-c77863f27943" />
 
 <img width="1001" height="894" alt="image" src="https://github.com/user-attachments/assets/00f09431-e571-404a-918b-95a9aa91f561" />
-
 
 
 
