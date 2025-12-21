@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sergio Bustos - Desarrollador Backend</title>
+
+    <!-- Bootstrap: Framework CSS para diseño responsive y componentes predefinidos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Google Fonts: Fuente personalizada Inter para mejorar la tipografía del sitio -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Externo: Hoja de estilos personalizada del portafolio -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<!-- Barra de navegación fija en la parte superior con links a todas las secciones -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+    <div class="container">
+        <!-- Logo/Marca personal con iniciales -->
+        <a class="navbar-brand fw-bold text-primary fs-4" href="index.html">SB</a>
+
+        <div class="d-flex align-items-center">
+            <!-- Botón para cambiar entre tema claro y oscuro -->
+            <button class="theme-toggle me-3" id="themeToggle" aria-label="Cambiar tema">
+                <span class="theme-icon" id="themeIcon">🌙</span>
+            </button>
+            
+            <!-- Botón hamburguesa para menú responsive en móviles -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <!-- Menú de navegación colapsable -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link fw-medium" href="index.html#inicio">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link fw-medium" href="index.html#experiencia">Experiencia</a></li>
+                <li class="nav-item"><a class="nav-link fw-medium" href="index.html#habilidades">Habilidades</a></li>
+                <li class="nav-item"><a class="nav-link fw-medium" href="index.html#proyectos">Proyectos</a></li>
+                <li class="nav-item"><a class="nav-link fw-medium" href="index.html#educacion">Educación</a></li>
+                <li class="nav-item"><a class="nav-link fw-medium" href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+
+<!-- ===================== CERTIFICADO ===================== -->
+<!-- Página detallada del certificado de Marca Personal -->
+<br>
+<section class="container my-5">
+    <h3 class="fw-bold text-primary mb-4 text-center">Certificación obtenida</h3>
+
+    <div class="row align-items-center g-4">
+
+        <!-- === CERTIFICADO EN RECUADRO BONITO === -->
+        <!-- Columna izquierda: Imagen del certificado -->
+        <div class="col-lg-6">
+            <div class="p-3 shadow-sm rounded-4 border bg-white">
+                <img src="images/certificadomarcapersonal.png" 
+                     alt="Certificado Marca Personal" 
+                     class="img-fluid rounded">
+            </div>
+        </div>
+
+        <!-- === TEXTO PROFESIONAL AL LADO === -->
+        <!-- Columna derecha: Descripción detallada del aprendizaje -->
+        <div class="col-lg-6">
+            <h4 class="fw-bold text-primary mb-4 text-center">¿Qué aprendí en este curso?</h4>
+
+            <!-- Introducción al curso -->
+            <p class="text-muted mt-3">
+                Este certificado acredita que completé y aprobé el curso
+                <strong>Marca personal</strong>, donde escalé y mejoré mi marca personal y el cómo me reflejaba como programador,
+                empecé a ver la psicología laboral, cómo es, cómo debo expresarme ante el mundo laboral y cómo debo ser con los demás de manera coordinada y respetuosa.
+            </p>
+
+            <!-- Subtítulo de habilidades desarrolladas -->
+            <p class="text-muted">
+                Durante la formación desarrollé:
+            </p>
+
+            <!-- Lista de habilidades y conocimientos adquiridos -->
+            <ul class="text-muted">
+                <li>Comprensión sólida de manejo psicológico</li>
+                <li>Comprensión sólida de lenguaje corporal y verbal en la comunicación</li>
+                <li>Comprensión sólida de imagen personal y marca frente a las demás personas</li>
+                <li>Desarrollo personal</li>
+                <li>Psicología personal</li>
+            </ul>
+
+            <!-- Reflexión personal sobre el curso -->
+            <p class="text-muted">
+                Este curso reforzó mi disciplina, mi mentalidad para mejorar como una persona frente al mundo de la manera más respetuosa y expresiva.
+            </p>
+            <br>
+            <!-- Botón de descarga del certificado en PDF -->
+            <div class="d-flex justify-content-center">
+                <a href="docs/CERTIFICADO DE MARCA PERSONAL.pdf" download class="mini-download btn btn-outline-primary mt-3">Descargar PDF 👇🏻</a>
+            </div>
+        </div>
+        <br>
+        <!-- Botón para volver a la sección de educación -->
+        <div class="col-12">
+            <div class="d-flex justify-content-center">
+                <a href="index.html#educacion" class="btn btn-primary">Volver a educación</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- JavaScript externo: Archivo con funcionalidades interactivas (cambio de tema, etc.) -->
+<script src="script.js"></script>
+
+</body>
+</html>

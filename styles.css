@@ -1,0 +1,284 @@
+/* ==========================
+   ESTILOS GENERALES
+========================== */
+
+/* Aplica desplazamiento suave al hacer scroll en toda la página */
+* {
+    scroll-behavior: smooth;
+}
+
+/* Estilos base del cuerpo del documento */
+body {
+    /* Fuente principal del sitio */
+    font-family: 'Inter', sans-serif;
+
+    /* Color de fondo claro por defecto */
+    background-color: #f8f9fa;
+}
+
+/* ==========================
+   MODO OSCURO
+========================== */
+
+/* Estilos generales cuando el body tiene la clase dark-mode */
+body.dark-mode {
+    /* Fondo oscuro principal */
+    background-color: #1a1a1a;
+
+    /* Color de texto claro para contraste */
+    color: #e0e0e0;
+}
+
+/* Barra de navegación en modo oscuro */
+body.dark-mode .navbar {
+    /* Fondo oscuro de la navbar */
+    background-color: #2d2d2d !important;
+
+    /* Línea inferior sutil */
+    border-bottom: 1px solid #404040;
+}
+
+/* Color del logo y enlaces de la navbar en modo oscuro */
+body.dark-mode .navbar-brand,
+body.dark-mode .nav-link {
+    color: #e0e0e0 !important;
+}
+
+/* Color del enlace al pasar el mouse en modo oscuro */
+body.dark-mode .nav-link:hover {
+    color: #4063ff !important;
+}
+
+/* Fondo del hero section en modo oscuro */
+body.dark-mode .hero-section {
+    background: linear-gradient(135deg, #2d3748 0%, #1c385f 100%);
+}
+
+/* Tarjetas en modo oscuro */
+body.dark-mode .card {
+    /* Fondo oscuro de la tarjeta */
+    background-color: #2d2d2d;
+
+    /* Borde sutil */
+    border-color: #404040;
+
+    /* Texto claro */
+    color: #e0e0e0;
+}
+
+/* Texto secundario en modo oscuro */
+body.dark-mode .text-muted {
+    color: #a0a0a0 !important;
+}
+
+/* Fondos claros adaptados a modo oscuro */
+body.dark-mode .bg-light {
+    background-color: #3a3a3a !important;
+    color: #e0e0e0 !important;
+}
+
+/* Footer en modo oscuro */
+body.dark-mode footer {
+    background-color: #0d0d0d !important;
+}
+
+/* Borde del botón hamburguesa en modo oscuro */
+body.dark-mode .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Ícono del botón hamburguesa en modo oscuro */
+body.dark-mode .navbar-toggler-icon {
+    /* SVG embebido con líneas blancas */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* ==========================
+   BOTÓN DE CAMBIO DE TEMA
+========================== */
+
+/* Botón que alterna entre modo claro y oscuro */
+.theme-toggle {
+    /* Sin fondo ni borde */
+    background: none;
+    border: none;
+
+    /* Tamaño del ícono */
+    font-size: 1.4rem;
+
+    /* Cursor tipo botón */
+    cursor: pointer;
+
+    /* Espaciado interno */
+    padding: 0.5rem;
+
+    /* Forma circular */
+    border-radius: 50%;
+
+    /* Transición suave para animaciones */
+    transition: all 0.3s ease;
+
+    /* Centrado del ícono */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Ajustes de altura de línea */
+    line-height: 1;
+
+    /* Tamaño fijo del botón */
+    width: 40px;
+    height: 40px;
+}
+
+/* Efecto hover del botón de tema */
+.theme-toggle:hover {
+    background-color: rgba(64, 99, 255, 0.1);
+}
+
+/* Elimina estilos de foco por defecto */
+.theme-toggle:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Ícono dentro del botón */
+.theme-icon {
+    display: block;
+
+    /* Animación de rotación */
+    transition: transform 0.3s ease;
+
+    line-height: 1;
+}
+
+/* Rotación del ícono al pasar el mouse */
+.theme-toggle:hover .theme-icon {
+    transform: rotate(20deg);
+}
+
+/* ==========================
+   HERO SECTION
+========================== */
+
+/* Sección principal destacada */
+.hero-section {
+    /* Gradiente de fondo */
+    background: linear-gradient(135deg, #4063ff 0%, #4ba2a2 100%);
+
+    /* Espaciado vertical */
+    padding: 120px 0 80px;
+
+    /* Posición relativa para pseudo-elementos */
+    position: relative;
+
+    /* Oculta desbordamientos */
+    overflow: hidden;
+}
+
+/* Patrón decorativo del hero */
+.hero-section::before {
+    content: '';
+
+    /* Cubre toda la sección */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /* Fondo SVG en forma de cuadrícula */
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+
+    /* Transparencia del patrón */
+    opacity: 0.3;
+}
+
+/* Contenido del hero por encima del patrón */
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+
+    /* Desplazamiento sutil hacia arriba */
+    transform: translateY(-10px);
+}
+
+/* Imagen de perfil */
+.profile-img {
+    width: 200px;
+    height: 200px;
+
+    /* Mantiene proporción sin deformar */
+    object-fit: cover;
+}
+
+/* ==========================
+   TÍTULOS DE SECCIÓN
+========================== */
+
+/* Contenedor del título */
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+/* Línea decorativa debajo del título */
+.section-title::after {
+    content: '';
+    display: block;
+
+    /* Tamaño de la línea */
+    width: 60px;
+    height: 4px;
+
+    /* Gradiente de color */
+    background: linear-gradient(90deg, #0d6efd, #0a58ca);
+
+    /* Espaciado superior */
+    margin: 15px auto 0;
+
+    /* Bordes redondeados */
+    border-radius: 2px;
+}
+
+/* ==========================
+   TARJETAS
+========================== */
+
+/* Efecto hover para tarjetas */
+.card-hover {
+    transition: all 0.35s ease;
+}
+
+/* Animación al pasar el mouse */
+.card-hover:hover {
+    /* Elevación y leve escalado */
+    transform: translateY(-12px) scale(1.02);
+
+    /* Sombra profunda */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.20);
+
+    /* Borde sutil azul */
+    border: 1px solid rgba(0,0,255,0.15);
+}
+
+/* Tipo o categoría del proyecto */
+.project-type {
+    /* Márgenes verticales */
+    margin: 4px 0 8px 0;
+
+    /* Separación del borde izquierdo */
+    padding-left: 10px;
+
+    /* Tamaño de fuente */
+    font-size: 0.9rem;
+
+    /* Peso medio */
+    font-weight: 500;
+
+    /* Color gris */
+    color: #6c757d;
+
+    /* Línea decorativa izquierda */
+    border-left: 3px solid #0d6efd;
+}

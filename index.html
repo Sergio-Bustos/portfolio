@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sergio Bustos - Desarrollador de Software</title>
+
+    <!-- Bootstrap: Framework CSS para diseño responsive y componentes predefinidos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Google Fonts: Fuente personalizada Inter para mejorar la tipografía del sitio -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Externo: Hoja de estilos personalizada del portafolio -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<!-- Barra de navegación fija en la parte superior con links a todas las secciones -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+    <div class="container">
+        <!-- Logo/Marca personal con iniciales -->
+        <a class="navbar-brand fw-bold text-primary fs-4" href="index.html">SB</a>
+
+        <div class="d-flex align-items-center">
+            <!-- Botón para cambiar entre tema claro y oscuro -->
+            <button class="theme-toggle me-3" id="themeToggle" aria-label="Cambiar tema">
+                <span class="theme-icon" id="themeIcon">🌙</span>
+            </button>
+            
+            <!-- Botón hamburguesa para menú responsive en móviles -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <!-- Menú de navegación colapsable -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link fw-medium" href="index.html#inicio">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link fw-medium" href="index.html#experiencia">Experiencia</a></li>
+                <li class="nav-item"><a class="nav-link fw-medium" href="index.html#habilidades">Habilidades</a></li>
+                <li class="nav-item"><a class="nav-link fw-medium" href="index.html#proyectos">Proyectos</a></li>
+                <li class="nav-item"><a class="nav-link fw-medium" href="index.html#educacion">Educación</a></li>
+                <li class="nav-item"><a class="nav-link fw-medium" href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ===================== HERO SECTION ===================== -->
+<!-- Sección principal con presentación, nombre y tecnologías principales -->
+<section id="inicio" class="hero-section text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Columna izquierda: Información personal y badges de tecnologías -->
+            <div class="col-md-8 text-center text-md-start">
+                <h1 class="display-3 fw-bold mb-3 hero-title">Sergio Andrés Bustos</h1>
+                <p class="fs-4 mb-4 hero-subtitle">Desarrollador de Software | Python & Flask Enthusiast</p>
+                <!-- Badges de tecnologías y herramientas dominadas -->
+                <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
+                    <span class="badge bg-light bg-opacity-25 px-3 py-2 fs-6">Python</span>
+                    <span class="badge bg-light bg-opacity-25 px-3 py-2 fs-6">Flask</span>
+                    <span class="badge bg-light bg-opacity-25 px-3 py-2 fs-6">PostgreSQL</span>
+                    <span class="badge bg-light bg-opacity-25 px-3 py-2 fs-6">Git</span>
+                    <span class="badge bg-light bg-opacity-25 px-3 py-2 fs-6">GitHub</span>
+                    <span class="badge bg-light bg-opacity-25 px-3 py-2 fs-6">HTML5</span>
+                    <span class="badge bg-light bg-opacity-25 px-3 py-2 fs-6">CSS3</span>
+                    <span class="badge bg-light bg-opacity-25 px-3 py-2 fs-6">Bootstrap</span>
+                    <span class="badge bg-light bg-opacity-25 px-3 py-2 fs-6">SCRUM</span>
+                    <span class="badge bg-light bg-opacity-25 px-3 py-2 fs-6">VS Code</span>
+                </div>
+            </div>
+            <!-- Columna derecha: Foto de perfil -->
+            <div class="col-md-4 text-center mt-4 mt-md-0">
+                <img src="images/photo.png" 
+                     class="rounded-circle border border-4 border-white shadow-lg profile-img" 
+                     alt="Sergio Bustos"
+                     width="200"
+                     height="200">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SOBRE MÍ ===================== -->
+<!-- Sección de presentación personal con descripción y estadísticas -->
+<section class="container py-5">
+    <div class="row g-4 align-items-center">
+        <!-- Columna izquierda: Descripción personal y profesional -->
+        <div class="col-md-8">
+            <h3 class="text-primary fw-bold mb-4">Sobre mí</h3>
+            <p class="fs-5 lh-lg">
+                Soy un estudiante apasionado por la tecnología, cursando técnico en programación de software en el SENA y actualmente en 10° grado. 
+                <br><br>Me especializo en desarrollo de software con Python y Flask, creando aplicaciones web eficientes y escalables.
+            </p>
+            <p class="fs-5 lh-lg">
+                Cada proyecto es una oportunidad para aprender y crecer. Me considero una persona analítica, comprometida con las buenas prácticas 
+                de programación y siempre dispuesto a enfrentar nuevos desafíos.
+            </p>
+            <!-- Información básica: ubicación y edad -->
+            <div class="mt-4">
+                <span class="badge bg-light text-dark px-3 py-2 me-2 mb-2">📍 Palmira, Colombia</span>
+                <span class="badge bg-light text-dark px-3 py-2 me-2 mb-2">🎂 16 años</span>
+            </div>
+        </div>
+        <!-- Columna derecha: Tarjeta con estadísticas -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body text-center p-4">
+                    <!-- Número de proyectos completados -->
+                    <div class="mb-3">
+                        <h2 class="text-primary fw-bold mb-1">6+</h2>
+                        <p class="text-muted mb-0">Proyectos Completados</p>
+                    </div>
+                    <hr>
+                    <!-- Número de tecnologías dominadas -->
+                    <div class="mb-3">
+                        <h2 class="text-primary fw-bold mb-1">10+</h2>
+                        <p class="text-muted mb-0">Tecnologías Dominadas</p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== EXPERIENCIA ===================== -->
+<!-- Sección que muestra la experiencia laboral y profesional -->
+<section id="experiencia" class="container py-5">
+    <h4 class="text-center fw-semibold mb-4">Experiencia</h4>
+
+    <div class="row g-4">
+        <!-- Tarjeta de experiencia en desarrollo web -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">Experiencia</h5>
+                    <br>
+                    <p class="project-type">Desarrollo web propio</p>
+                    <br>
+                    <p class="text-muted mb-3">Actualidad</p>
+                    <p>Desarrollo de páginas web especializado en backend con frontend muy sencillo.</p>
+
+                    <!-- Badges de áreas de trabajo -->
+                    <div class="mt-3">
+                        <span class="badge bg-light text-dark me-1 mb-1">Backend</span>
+                        <span class="badge bg-light text-dark me-1 mb-1">Frontend</span>
+                        <span class="badge bg-light text-dark me-1 mb-1">Database</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== HABILIDADES ===================== -->
+<!-- Sección que muestra las habilidades técnicas y blandas con barras de progreso -->
+<section id="habilidades" class="container py-5">
+    <h4 class="text-center fw-semibold mb-4">Habilidades Técnicas</h4>
+
+    <div class="row g-4">
+        <!-- Tarjeta de habilidades Backend -->
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 rounded-4 h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold mb-4">💻 Backend Development</h5>
+                    
+                    <!-- Barra de progreso: Python -->
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="fw-semibold">Python</span>
+                            <span class="text-muted">60%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 60%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Barra de progreso: Flask -->
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="fw-semibold">Flask</span>
+                            <span class="text-muted">40%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 40%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Barra de progreso: APIs REST -->
+                    <div class="mb-0">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="fw-semibold">APIs REST</span>
+                            <span class="text-muted">40%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 40%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta de habilidades Frontend -->
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 rounded-4 h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold mb-4">🎨 Frontend Development</h5>
+                    
+                    <!-- Barra de progreso: HTML5 -->
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="fw-semibold">HTML5</span>
+                            <span class="text-muted">70%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Barra de progreso: CSS3 -->
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="fw-semibold">CSS3</span>
+                            <span class="text-muted">50%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Barra de progreso: Bootstrap -->
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="fw-semibold">Bootstrap</span>
+                            <span class="text-muted">75%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Barra de progreso: Responsive Design -->
+                    <div class="mb-0">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="fw-semibold">Responsive Design</span>
+                            <span class="text-muted">70%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta de habilidades en Base de Datos -->
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 rounded-4 h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold mb-4">🗄️ Base de Datos</h5>
+                    
+                    <!-- Barra de progreso: PostgreSQL -->
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="fw-semibold">PostgreSQL</span>
+                            <span class="text-muted">60%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta de herramientas -->
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 rounded-4 h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold mb-4">🛠️ Herramientas</h5>
+                    
+                    <!-- Barra de progreso: Git & GitHub -->
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="fw-semibold">Git & GitHub</span>
+                            <span class="text-muted">70%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Barra de progreso: VS Code -->
+                    <div class="mb-0">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="fw-semibold">VS Code</span>
+                            <span class="text-muted">80%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Habilidades Blandas -->
+    <div class="row g-4 mt-4">
+        <div class="col-12">
+            <h4 class="text-center fw-semibold mb-4">Habilidades Blandas</h4>
+        </div>
+
+        <!-- Tarjeta: SCRUM -->
+        <div class="col-md-3 col-6">
+            <div class="card shadow-sm border-0 rounded-4 text-center h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">SCRUM</h5>
+                    <p class="mb-0">Metodología ágil en proyectos con sólido manejo social</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta: Trabajo en Equipo -->
+        <div class="col-md-3 col-6">
+            <div class="card shadow-sm border-0 rounded-4 text-center h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">Trabajo en Equipo</h5>
+                    <p class="mb-0">Colaboración efectiva, capaz de implementar soluciones efectivas y mejorar los problemas que se presenten</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta: Liderazgo -->
+        <div class="col-md-3 col-6">
+            <div class="card shadow-sm border-0 rounded-4 text-center h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">Liderazgo</h5>
+                    <p class="mb-0">Toma de decisiones eficaces, respeto ante el equipo, consideración, consolidación por y para el equipo</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta: Comunicación -->
+        <div class="col-md-3 col-6">
+            <div class="card shadow-sm border-0 rounded-4 text-center h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">Expresión</h5>
+                    <p class="mb-0">Expresión efectiva, con buenas prácticas comunicativas, para mejorar la comunicación efectiva</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== PROYECTOS ===================== -->
+<!-- Sección que muestra el portafolio de proyectos completados -->
+<section id="proyectos" class="container py-5">
+    <h4 class="text-center fw-semibold mb-4">Proyectos</h4>
+
+    <!-- Primera fila de proyectos -->
+    <div class="row g-4">
+        <!-- Proyecto 1: NoteFlow -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">NoteFlow</h5>
+                    <br>
+                    <p class="project-type">Desarrollo web FullStack</p>
+                    <br>
+                    <p class="text-muted mb-3">Python · Flask · PostgreSQL · HTML · CSS · Bootstrap</p>
+                    <p>Gestor de notas completo con sistema CRUD, autenticación, semi - APIs RESTful y manejo robusto de errores.</p>
+
+                    <!-- Badges de características del proyecto -->
+                    <div class="mt-3">
+                        <span class="badge bg-light text-dark me-1 mb-1">CRUD</span>
+                        <span class="badge bg-light text-dark me-1 mb-1">Auth</span>
+                        <span class="badge bg-light text-dark me-1 mb-1">Semi - API REST</span>
+                        <span class="badge bg-light text-dark me-1 mb-1">Database</span>
+                        <span class="badge bg-light text-dark me-1 mb-1">Librerías</span>
+                        <span class="badge bg-light text-dark me-1 mb-1">SCRUM</span>
+                    </div>
+                    <br><br>
+                    <!-- Enlaces al código y demo -->
+                    <div class="d-flex">
+                       <a href="https://github.com/Sergio-Bustos/NoteFlow" class="btn btn-primary me-2" target="_blank">Ver código</a>
+                       <a href="index.html#proyectos" class="btn btn-primary" target="_blank">Ver página web</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Proyecto 2: CV Web -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">CV Web</h5>
+                    <br>
+                    <p class="project-type">Desarrollo web Frontend</p>
+                    <br>
+                    <p class="text-muted mb-3">HTML · CSS · Bootstrap · JavaScript</p>
+                    <p>Portafolio personal responsivo, moderno y optimizado para todo tipo de dispositivos.</p>
+
+                    <!-- Badges de características del proyecto -->
+                    <div class="mt-3">
+                        <span class="badge bg-light text-dark me-1 mb-1">Responsive</span>
+                        <span class="badge bg-light text-dark me-1 mb-1">Modern UI</span>
+                    </div>
+                    <br><br>
+                    <!-- Enlace al código -->
+                    <div class="d-flex">
+                       <a href="https://github.com/Sergio-Bustos/portfolio" class="btn btn-primary me-2" target="_blank">Ver código</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Proyecto 3: Cambio Climático -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">Cambio Climático</h5>
+                    <br>
+                    <p class="project-type">Desarrollo web Frontend</p>
+                    <br>
+                    <p class="text-muted mb-3">HTML · Bootstrap · CSS</p>
+                    <p>Página web responsive sobre investigación científica y educativa del Cambio Climático global.</p>
+
+                    <!-- Badges de características del proyecto -->
+                    <div class="mt-3">
+                        <span class="badge bg-light text-dark me-1 mb-1">Responsive</span>
+                        <span class="badge bg-light text-dark me-1 mb-1">Modern UI</span>
+                    </div>
+                    <br><br>
+                    <!-- Enlaces al código y demo -->
+                    <div class="d-flex">
+                       <a href="https://github.com/Sergio-Bustos/Cambio-Climatico" class="btn btn-primary me-2" target="_blank">Ver código</a>
+                       <a href="https://cambio-climatico-mu.vercel.app/" class="btn btn-primary" target="_blank">Ver página web</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Segunda fila de proyectos -->
+    <div class="row g-4 mt-2">
+        <!-- Proyecto 4: Sistema de formulario y registro web -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">Sistema de formulario y registro web</h5>
+                    <br>
+                    <p class="project-type">Desarrollo web Backend</p>
+                    <br>
+                    <p class="text-muted mb-3">HTML · Python · Flask · PostgreSQL</p>
+                    <p>Desarrollo web backend de conexión a una base de datos para creación de usuarios mediante formulario de registro.</p>
+
+                    <!-- Badges de características del proyecto -->
+                    <div class="mt-3">
+                        <span class="badge bg-light text-dark me-1 mb-1">Conexión a base de datos</span>
+                        <span class="badge bg-light text-dark me-1 mb-1">Autenticación</span>
+                        <span class="badge bg-light text-dark me-1 mb-1">Interactivo</span>
+                    </div>
+                    <br><br>
+                    <!-- Enlace al código -->
+                    <div class="d-flex">
+                       <a href="https://github.com/Sergio-Bustos/Sistema-de-formulario-y-registro." class="btn btn-primary me-2" target="_blank">Ver código</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto 5: Sistema automático de parqueadero -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">Sistema automático de parqueadero - Parking Center S.A.S</h5>
+                    <br>
+                    <p class="project-type">Desarrollo en Python</p>
+                    <br>
+                    <p class="text-muted mb-3">Python</p>
+                    <p>Sistema que registra entradas/salidas, calcula tiempo, cobra según vehículo y mantiene historial.</p>
+
+                    <!-- Badges de características del proyecto -->
+                    <div class="mt-3">
+                        <span class="badge bg-light text-dark me-1 mb-1">Automático</span>
+                        <span class="badge bg-light text-dark me-1 mb-1">Estético</span>
+                        <span class="badge bg-light text-dark me-1 mb-1">Interactivo</span>
+                        <span class="badge bg-light text-dark me-1 mb-1">Flexible</span>
+                    </div>
+                    <br><br>
+                    <!-- Enlace al código -->
+                    <div class="d-flex">
+                       <a href="https://github.com/Sergio-Bustos/Proyecto-Parking-Center-S.A.S" class="btn btn-primary me-2" target="_blank">Ver código</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== EDUCACIÓN ===================== -->
+<!-- Sección de formación académica principal -->
+<section id="educacion" class="container py-5">
+    <h4 class="text-center fw-semibold mb-4">Formación Académica</h4>
+
+    <div class="row g-4 justify-content-center">
+        <!-- Tarjeta: Técnico en Programación de Software -->
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 rounded-4 text-center h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">Técnico en Programación de Software</h5>
+                    <p class="text-muted">SENA</p>
+                    <p class="mb-0">Formación integral en desarrollo de software, bases de datos y metodologías ágiles.</p>
+                    <!-- Enlace al certificado -->
+                    <section class="container py-5">
+                        <div class="d-flex justify-content-center">
+                            <a href="certificadotecnico.html" target="_blank" class="btn btn-primary">Ver certificado</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== EDUCACIÓN COMPLEMENTARIA ===================== -->
+<!-- Sección de cursos y certificaciones adicionales -->
+<section id="educacion-complementaria" class="container py-5">
+    <h4 class="text-center fw-semibold mb-4">Formación Complementaria</h4>
+
+    <div class="row g-4">
+        <!-- Curso 1: Variables y estructuras de control en Python -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 text-center h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">Variables y estructuras de control en Python</h5>
+                    <p class="text-muted">SENA</p>
+                    <p class="mb-3">Curso - Primeros pasos hacia Python y sus fundamentos bases.</p>
+
+                    <!-- Enlace al certificado -->
+                    <div class="d-flex justify-content-center">
+                        <a href="certificadopython.html" target="_blank" class="btn btn-primary">
+                            Ver certificado
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Curso 2: POO -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 text-center h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">POO</h5>
+                    <p class="text-muted">Capacítate para el empleo</p>
+                    <p class="mb-3">Curso - Programación Orientada a Objetos con refactorización y conceptos avanzados como manejo de Tkinter, etc.</p>
+
+                    <!-- Enlace al certificado -->
+                    <div class="d-flex justify-content-center">
+                        <a href="certificadopoo.html" target="_blank" class="btn btn-primary">
+                            Ver certificado
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Curso 3: Inglés Básico Nivel 1 -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 text-center h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">Inglés Básico Nivel 1</h5>
+                    <p class="text-muted">SENA</p>
+                    <p class="mb-3">Curso - Aprendizaje inicial del idioma inglés.</p>
+
+                    <!-- Enlace al certificado -->
+                    <div class="d-flex justify-content-center">
+                        <a href="certificadoingles.html" target="_blank" class="btn btn-primary">
+                            Ver certificado
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Curso 4: Aplicación de la metodología SCRUM -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 text-center h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">Aplicación de la metodología SCRUM para proyectos de desarrollo de software</h5>
+                    <p class="text-muted">SENA</p>
+                    <p class="mb-3">Curso - Metodologías ágiles para proyectos de software.</p>
+
+                    <!-- Enlace al certificado -->
+                    <div class="d-flex justify-content-center">
+                        <a href="certificadoscrum.html" target="_blank" class="btn btn-primary">
+                            Ver certificado
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Curso 5: Marca Personal -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 text-center h-100 card-hover">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-semibold">Marca Personal</h5>
+                    <p class="text-muted">Platzi</p>
+                    <p class="mb-3">Curso - Marca y desarrollo personal.</p>
+
+                    <!-- Enlace al certificado -->
+                    <div class="d-flex justify-content-center">
+                        <a href="certificadomarcapersonal.html" target="_blank" class="btn btn-primary">
+                            Ver certificado
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CONTACTO ===================== -->
+<!-- Sección de información de contacto y redes sociales -->
+<section id="contacto" class="container py-5">
+    <h4 class="text-center fw-semibold mb-4">Conectemos</h4>
+
+    <div class="text-center">
+        <p class="lead mb-4">¿Tienes un proyecto en mente o quieres colaborar? ¡Hablemos!</p>
+        
+        <!-- Botones de contacto y redes sociales -->
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <!-- Email -->
+            <a href="mailto:sergiobustosmondragon@gmail.com" class="btn btn-primary btn-lg rounded-pill px-4">
+                📧 Email
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/sergioabustosm" class="btn btn-outline-primary btn-lg rounded-pill px-4" target="_blank">
+                💼 LinkedIn
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com/Sergio-Bustos" class="btn btn-outline-primary btn-lg rounded-pill px-4" target="_blank">
+                😺 GitHub
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/573136194040?text=Hola%20Sergio,%20me%20interesa%20contactarte%20acerca%20de%20tu%20de%20trabajo" class="btn btn-outline-primary btn-lg rounded-pill px-4" target="_blank">
+                💬 WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<!-- Pie de página con derechos de autor -->
+<footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+        <p class="mb-2">© 2025 Sergio Bustos. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<!-- JavaScript externo: Archivo con funcionalidades interactivas (cambio de tema, etc.) -->
+<script src="script.js"></script>
+
+</body>
+</html>
