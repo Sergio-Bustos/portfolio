@@ -1,0 +1,35 @@
+/* ==========================
+   SKILL FLOAT ANIMATION
+   Animación flotante para los logos SVG.
+   Cada ícono sube y baja de forma escalonada
+   usando la variable CSS --delay.
+========================== */
+
+/*
+ * Clase aplicada a .skill-circle-img para la animación flotante.
+ * Usa --delay (CSS custom property) para escalonar cada ícono
+ * de forma independiente sin clases extra.
+ */
+.skill-float {
+    animation: skillFloat 3s ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+}
+
+/*
+ * Keyframe de la animación:
+ * Movimiento vertical suave de 0 → -8px → 0
+ * con una ligera escala para dar sensación de profundidad.
+ */
+@keyframes skillFloat {
+    0%   { transform: translateY(0px) scale(1); }
+    50%  { transform: translateY(-8px) scale(1.04); }
+    100% { transform: translateY(0px) scale(1); }
+}
+
+/*
+ * En hover se pausa la animación para mejor UX:
+ * el ícono queda quieto mientras el usuario lo mira.
+ */
+.skill-icon-card:hover .skill-float {
+    animation-play-state: paused;
+}

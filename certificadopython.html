@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!-- Idioma español -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Acepta tildes y caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Escala correcta en móvil -->
+    <title>Certificado Python — Sergio Bustos</title>
+    <!-- Lo que aparece en la pestaña -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS: grilla y utilidades -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS: menú hamburguesa en móvil -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Las mismas tres fuentes del portafolio -->
+
+    <link href="styles.css" rel="stylesheet">
+    <!-- Estilos compartidos con todas las páginas -->
+    <link href="images/favicon.ico" rel="icon" type="image/png">
+    <!-- Ícono de la pestaña -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Íconos para el sol/luna del navbar -->
+</head>
+<body>
+
+<!-- Navbar fijo arriba, idéntico al de todas las páginas -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+
+        <!-- El logo carga index.html completo -->
+        <a class="navbar-brand" href="index.html">SB</a>
+
+        <div class="d-flex align-items-center gap-2">
+            <!-- El tema se guarda en localStorage y persiste entre páginas -->
+            <button aria-label="Cambiar tema" class="theme-toggle fs-5 text-secondary" id="themeToggle">
+                <i class="bi bi-sun-fill theme-icon" id="themeIcon"></i>
+            </button>
+            <button class="navbar-toggler border-0" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto gap-1">
+                <!-- Apuntan a secciones de index.html, no de esta página -->
+                <!-- Ninguno quedará marcado como activo porque esta página no tiene esos IDs -->
+                <li class="nav-item"><a class="nav-link" href="index.html#inicio">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#experiencia">Experiencia</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#habilidades">Habilidades</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#proyectos">Proyectos</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#educacion">Educación</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- cert-page-bg en styles.css: fondo alternativo, ocupa mínimo toda la pantalla, padding arriba para el navbar -->
+<div class="cert-page-bg">
+    <div class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+
+        <div class="text-center mb-5">
+            <!-- "Certificación" como supratítulo porque es un curso complementario, no la formación principal -->
+            <span class="section-label">Certificación</span>
+            <!-- El título más largo de todas las páginas de certificado, pero section-heading usa clamp() en CSS y se adapta -->
+            <h2 class="section-heading">Variables y Estructuras de Control en Python</h2>
+            <div class="section-divider mx-auto"></div>
+        </div>
+
+        <!-- Dos columnas con gap de 3rem, alineadas desde arriba -->
+        <div class="row g-5 align-items-start">
+
+            <!-- Columna izquierda: mitad del ancho en desktop, ancho completo en móvil -->
+            <div class="col-lg-6">
+
+                <!-- Tarjeta con padding, borde, sombra y esquinas redondeadas definidas en styles.css -->
+                <div class="cert-image-wrapper">
+                    <!-- img-fluid: la imagen no se desborda -->
+                    <!-- rounded-3: esquinas suaves adicionales de Bootstrap -->
+                    <img alt="Certificado Variables y Estructuras de Control en Python" class="img-fluid rounded-3" src="images/certificadopython.png">
+                </div>
+
+                <div class="d-flex justify-content-center mt-4">
+                    <!-- download le dice al navegador que descargue el archivo en lugar de abrirlo -->
+                    <!-- Nota: el nombre del archivo tiene espacios; lo ideal sería usar guiones bajos para evitar problemas en algunos servidores -->
+                    <a class="btn btn-primary" download href="docs/CERTIFICADO DE VARIABLES Y ESTRUCTURAS DE CONTROL EN PYTHON.pdf">Descargar PDF</a>
+                </div>
+
+            </div>
+
+            <!-- Columna derecha: descripción y lista de aprendizajes -->
+            <div class="col-lg-6">
+
+                <span class="section-label">¿Qué aprendí?</span>
+
+                <!-- El <br> controla el salto de línea -->
+                <!-- Es el título más emotivo de todas las páginas de certificado, posiciona este curso como el punto de origen -->
+                <h3 class="section-heading mb-3">Mi primer paso<br>en programación</h3>
+
+                <!-- <strong> resalta el nombre oficial del curso -->
+                <p class="section-intro">
+                    Este certificado acredita que completé y aprobé el curso de <strong>Variables y Estructuras de Control en Python</strong>, donde comencé mi camino en la programación. Aprendí las bases de Python: variables, su historia, facilidad de uso, características y teoría fundamental.
+                </p>
+
+                <!-- cert-list en styles.css: quita los bullets del navegador y pone una flecha → como bullet personalizado -->
+                <ul class="cert-list mt-4">
+                    <li>Comprensión sólida de variables y tipos de datos</li>
+                    <li>Diferencia entre lenguaje interpretado y compilado</li>
+                    <li>Teoría fundamental de Python</li>
+                    <li>Métodos como concatenación, f-strings y más</li>
+                    <li>Operadores lógicos y condicionales</li>
+                    <li>Buenas prácticas de programación</li>
+                    <li>Lógica algorítmica básica</li>
+                </ul>
+
+                <!-- Cierra el arco narrativo conectando este primer curso con lo que vino después -->
+                <p class="section-intro mt-4">
+                    Este curso fue el punto de partida que encendió mi pasión por el desarrollo. Me dio las bases para avanzar hacia Python avanzado y el mundo del backend.
+                </p>
+
+                <div class="mt-4">
+                    <!-- btn-outline-primary: botón con borde y sin relleno, más discreto -->
+                    <!-- ← indica visualmente que es navegación de regreso -->
+                    <!-- Carga index.html y hace scroll directo a #educacion -->
+                    <a class="btn btn-outline-primary" href="index.html#educacion">← Volver a Educación</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- El mismo script.js de todas las páginas -->
+<!-- Activa: toggle de tema y sombra del navbar al hacer scroll -->
+<!-- No activa: animaciones .reveal, active nav link ni barras de progreso porque no existen en esta página -->
+<script src="script.js"></script>
+</body>
+</html>

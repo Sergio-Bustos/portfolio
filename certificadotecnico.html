@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!-- Declara que el documento es HTML5 -->
+<html lang="es">
+<!-- Idioma español para lectores de pantalla y SEO -->
+<head>
+    <meta charset="UTF-8">
+    <!-- Acepta tildes, ñ y caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Que se vea bien en móvil -->
+    <title>Certificado Técnico — Sergio Bustos</title>
+    <!-- Lo que aparece en la pestaña del navegador -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS: grilla, componentes y utilidades base -->
+    <link href="images/favicon.ico" rel="icon" type="image/png">
+    <!-- Ícono de la pestaña -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS: necesario para el menú hamburguesa en móvil -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Las mismas tres fuentes que index.html para que todo el portafolio se vea igual -->
+
+    <link href="styles.css" rel="stylesheet">
+    <!-- Hoja de estilos compartida con index.html, aquí viven los estilos del portafolio -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Íconos para el navbar (sol/luna del toggle de tema) -->
+</head>
+<body>
+
+<!-- Navbar fijo arriba, exactamente igual al de index.html -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+
+        <!-- Al hacer clic en el logo, carga index.html completo (no es ancla, es página diferente) -->
+        <a class="navbar-brand" href="index.html">SB</a>
+
+        <div class="d-flex align-items-center gap-2">
+            <!-- El tema guardado en localStorage persiste entre esta página e index.html -->
+            <button aria-label="Cambiar tema" class="theme-toggle fs-5 text-secondary" id="themeToggle">
+                <i class="bi bi-sun-fill theme-icon" id="themeIcon"></i>
+            </button>
+            <button class="navbar-toggler border-0" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto gap-1">
+                <!-- Estos links apuntan a anclas de index.html, no de esta página -->
+                <!-- Al hacer clic, el navegador carga index.html y hace scroll a la sección -->
+                <!-- Ningún link quedará marcado como activo aquí porque no hay esos IDs en esta página -->
+                <li class="nav-item"><a class="nav-link" href="index.html#inicio">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#experiencia">Experiencia</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#habilidades">Habilidades</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#proyectos">Proyectos</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#educacion">Educación</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- cert-page-bg está en styles.css: fondo alterno, min-height 100vh y padding-top para que el navbar no tape el contenido -->
+<div class="cert-page-bg">
+    <div class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+
+        <!-- Encabezado de página centrado con margen inferior generoso -->
+        <div class="text-center mb-5">
+            <!-- Supratítulo pequeño en mayúsculas, igual que en las secciones de index.html -->
+            <span class="section-label">Formación Principal</span>
+            <h2 class="section-heading">Técnico en Programación de Software</h2>
+            <!-- Línea decorativa centrada con mx-auto -->
+            <div class="section-divider mx-auto"></div>
+        </div>
+
+        <!-- Dos columnas con gap de 3rem entre ellas, alineadas desde arriba -->
+        <div class="row g-5 align-items-start">
+
+            <!-- Columna izquierda: ocupa mitad del ancho en desktop, ancho completo en móvil -->
+            <div class="col-lg-6">
+
+                <!-- cert-image-wrapper en styles.css: fondo de tarjeta, borde sutil, esquinas redondeadas, sombra y padding interior -->
+                <div class="cert-image-wrapper">
+                    <!-- img-fluid hace la imagen responsive, rounded-3 le da esquinas redondeadas adicionales -->
+                    <img alt="Certificado Técnico en Programación de Software" class="img-fluid rounded-3" src="images/certificadotecnico.png">
+                </div>
+
+                <!-- Botón centrado bajo la imagen con margen superior -->
+                <div class="d-flex justify-content-center mt-4">
+                    <!-- El certificado digital oficial aún no está listo para descarga -->
+                    <!-- Si el usuario hace clic, vuelve a la sección de educación de index.html -->
+                    <a class="btn btn-primary" href="index.html#educacion">Próximamente disponible</a>
+                </div>
+
+            </div>
+
+            <!-- Columna derecha: descripción, listas y herramientas -->
+            <div class="col-lg-6">
+
+                <!-- Supratítulo de la columna, mismo estilo que en index.html -->
+                <span class="section-label">¿Qué aprendí?</span>
+
+                <!-- El <br> controla el salto de línea para que quede bien compuesto visualmente -->
+                <h3 class="section-heading mb-3">El técnico que<br>cambió mi rumbo</h3>
+
+                <!-- <strong> destaca el nombre oficial del certificado dentro del texto -->
+                <p class="section-intro">
+                    Este certificado acredita que completé el <strong>Técnico en Programación de Software</strong> en el SENA. Aquí nació mi pasión por el desarrollo web con Python y Flask. Aprendí no solo teoría técnica, sino también valores y ética del mundo del desarrollo.
+                </p>
+
+                <!-- Subtítulo de lista ligeramente más pequeño que el section-label normal para jerarquía visual -->
+                <p class="section-label mt-4 mb-2" style="font-size:0.7rem;">Áreas principales</p>
+
+                <!-- cert-list en styles.css: quita los bullets del navegador y pone una flecha → como bullet personalizado -->
+                <ul class="cert-list">
+                    <li>Comprensión sólida de desarrollo web full-stack</li>
+                    <li>Desarrollo backend con Python y Flask</li>
+                    <li>Desarrollo frontend con HTML5, CSS3 y Bootstrap</li>
+                    <li>Bases de datos con PostgreSQL</li>
+                    <li>Buenas prácticas de programación</li>
+                    <li>JavaScript y sus fundamentos</li>
+                    <li>JavaScript en el DOM</li>
+                </ul>
+
+                <!-- Misma estructura que la lista anterior pero para materias no técnicas del SENA -->
+                <p class="section-label mt-4 mb-2" style="font-size:0.7rem;">Áreas complementarias</p>
+                <ul class="cert-list">
+                    <li>Derechos fundamentales en el trabajo</li>
+                    <li>Marco de trabajo ágil: SCRUM</li>
+                    <li>Ética laboral</li>
+                    <li>Educación ambiental</li>
+                    <li>Comunicación efectiva</li>
+                    <li>Deportes</li>
+                    <li>Seguridad y salud en el trabajo</li>
+                    <li>Inglés</li>
+                </ul>
+
+                <p class="section-label mt-4 mb-2" style="font-size:0.7rem;">Herramientas</p>
+
+                <!-- flex-wrap hace que los badges pasen a la siguiente línea si no caben -->
+                <!-- Los mismos skill-tag de index.html, reutilizando el estilo -->
+                <div class="d-flex flex-wrap gap-2 mt-2">
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">Bootstrap</span>
+                    <span class="skill-tag">Git / GitHub</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Tkinter</span>
+                    <span class="skill-tag">Figma</span>
+                </div>
+
+                <div class="mt-4">
+                    <!-- btn-outline-primary: botón con borde y sin relleno, más discreto que el primario -->
+                    <!-- ← es el carácter de flecha hacia atrás, indica visualmente que es navegación de regreso -->
+                    <!-- El href carga index.html y hace scroll directo a #educacion -->
+                    <a class="btn btn-outline-primary" href="index.html#educacion">← Volver a Educación</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- El mismo script.js de index.html -->
+<!-- Aquí activa: toggle de tema y sombra del navbar al hacer scroll -->
+<!-- No activa: animaciones .reveal, active nav link ni barras de progreso, porque no hay esos elementos en esta página -->
+<!-- Los observadores que no encuentran elementos simplemente no hacen nada, no rompen nada -->
+<script src="script.js"></script>
+</body>
+</html>

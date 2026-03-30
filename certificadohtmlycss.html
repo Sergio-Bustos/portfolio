@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!-- Declara que el documento está en HTML5 -->
+<html lang="es">
+<!-- Elemento raíz del documento, idioma español -->
+<head>
+    <meta charset="UTF-8">
+    <!-- Permite usar caracteres especiales como tildes y ñ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la página sea responsive en dispositivos móviles -->
+    <title>Certificado HTML y CSS — Sergio Bustos</title>
+    <!-- Título que aparece en la pestaña del navegador -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS de Bootstrap para su sistema de diseño y componentes -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS + Popper para componentes interactivos -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Las mismas tres fuentes del portafolio -->
+
+    <link href="images/favicon.ico" rel="icon" type="image/png">
+    <!-- Ícono de la pestaña -->
+    <link href="styles.css" rel="stylesheet">
+    <!-- Estilos compartidos con todas las páginas -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Librería de íconos Bootstrap Icons -->
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<!-- navbar-expand-lg: se expande en pantallas grandes -->
+<!-- fixed-top: se mantiene fija en la parte superior -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+
+        <!-- Logo que redirige al inicio -->
+        <a class="navbar-brand" href="index.html">SB</a>
+
+        <!-- Contenedor flexible para el botón de tema y el botón hamburguesa -->
+        <div class="d-flex align-items-center gap-2">
+            <!-- El tema se guarda en localStorage y persiste entre páginas -->
+            <button aria-label="Cambiar tema" class="theme-toggle fs-5 text-secondary" id="themeToggle">
+                <i class="bi bi-sun-fill theme-icon" id="themeIcon"></i>
+            </button>
+            <!-- Botón hamburguesa visible en móvil -->
+            <button class="navbar-toggler border-0" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <!-- ms-auto: empuja los elementos hacia la derecha -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto gap-1">
+                <!-- Apuntan a secciones de index.html, no de esta página -->
+                <!-- Ninguno quedará marcado como activo aquí -->
+                <li class="nav-item"><a class="nav-link" href="index.html#inicio">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#experiencia">Experiencia</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#habilidades">Habilidades</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#proyectos">Proyectos</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#educacion">Educación</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- cert-page-bg en styles.css: fondo alternativo, ocupa mínimo toda la pantalla, padding arriba para el navbar -->
+<div class="cert-page-bg">
+    <div class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+
+        <div class="text-center mb-5">
+            <span class="section-label">Certificación</span>
+            <h2 class="section-heading">Complete Guide in HTML &amp; CSS — Build Responsive Website</h2>
+            <!-- Línea decorativa centrada -->
+            <div class="section-divider mx-auto"></div>
+        </div>
+
+        <!-- Dos columnas con gap de 3rem, alineadas desde arriba -->
+        <div class="row g-5 align-items-start">
+
+            <!-- Columna izquierda: imagen y botón de descarga -->
+            <div class="col-lg-6">
+
+                <!-- Tarjeta con padding, borde, sombra y esquinas redondeadas definidas en styles.css -->
+                <div class="cert-image-wrapper">
+                    <!-- img-fluid: la imagen no se desborda -->
+                    <!-- rounded-3: esquinas suaves adicionales de Bootstrap -->
+                    <img alt="Certificado Complete Guide in HTML &amp; CSS" class="img-fluid rounded-3" src="images/certificadohtmlycss.jfif">
+                </div>
+
+                <div class="d-flex justify-content-center mt-4">
+                    <!-- download fuerza la descarga en lugar de abrir el PDF en el navegador -->
+                    <a class="btn btn-primary" download href="docs/CERTIFICADO DE HTML Y CSS.pdf">Descargar PDF</a>
+                </div>
+
+            </div>
+
+            <!-- Columna derecha: descripción y lista de aprendizajes -->
+            <div class="col-lg-6">
+
+                <span class="section-label">¿Qué aprendí?</span>
+
+                <!-- El <br> controla el salto de línea -->
+                <h3 class="section-heading mb-3">Mi primer paso<br>en Frontend</h3>
+
+                <!-- <strong> resalta el nombre oficial del curso -->
+                <p class="section-intro">
+                    Este certificado acredita que completé y aprobé el curso <strong>Complete Guide in HTML &amp; CSS — Build Responsive Website</strong>, donde comencé mi camino en el Frontend. Aprendí las bases de HTML y CSS: etiquetas, historia, SEO, características y teoría fundamental como responsive, selectores y más.
+                </p>
+
+                <!-- cert-list en styles.css: quita los bullets del navegador y pone una flecha → como bullet personalizado -->
+                <ul class="cert-list mt-4">
+                    <li>Comprensión sólida de etiquetas HTML</li>
+                    <li>Diferencia entre HTML y CSS</li>
+                    <li>Teoría fundamental de HTML y CSS</li>
+                    <li>SEO básico</li>
+                    <li>Diseño responsive</li>
+                    <li>Buenas prácticas de Frontend</li>
+                    <li>Maquetado y diseño de interfaces</li>
+                </ul>
+
+                <p class="section-intro mt-4">
+                    Este curso fue el punto de partida que encendió mi pasión por el desarrollo web y me dio las bases para avanzar hacia JavaScript y frameworks modernos.
+                </p>
+
+                <div class="mt-4">
+                    <!-- btn-outline-primary: botón con borde y sin relleno -->
+                    <!-- ← indica visualmente que es navegación de regreso -->
+                    <!-- Carga index.html y hace scroll directo a #educacion -->
+                    <a class="btn btn-outline-primary" href="index.html#educacion">← Volver a Educación</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- El mismo script.js de todas las páginas -->
+<!-- Activa: toggle de tema y sombra del navbar al hacer scroll -->
+<!-- No activa: animaciones .reveal, active nav link ni barras de progreso porque no existen en esta página -->
+<script src="script.js"></script>
+</body>
+</html>
