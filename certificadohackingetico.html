@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- Idioma español -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Acepta tildes y caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Escala correcta en móvil -->
+    <title>Certificado Hacking Ético — Sergio Bustos</title>
+    <!-- Lo que aparece en la pestaña -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS: grilla y utilidades -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS: para el menú hamburguesa en móvil -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Las mismas tres fuentes del portafolio para consistencia visual -->
+
+    <link href="styles.css" rel="stylesheet">
+    <!-- Estilos compartidos con todas las páginas del portafolio -->
+    <link href="images/favicon.ico" rel="icon" type="image/png">
+    <!-- Ícono de la pestaña -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Íconos para el sol/luna del toggle de tema en el navbar -->
+</head>
+<body>
+
+<!-- Navbar fijo arriba, idéntico al de todas las páginas del portafolio -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+
+        <!-- El logo carga index.html completo, no es una ancla interna -->
+        <a class="navbar-brand" href="index.html">SB</a>
+
+        <div class="d-flex align-items-center gap-2">
+            <!-- El tema elegido se guarda en localStorage y persiste entre páginas -->
+            <button aria-label="Cambiar tema" class="theme-toggle fs-5 text-secondary" id="themeToggle">
+                <i class="bi bi-sun-fill theme-icon" id="themeIcon"></i>
+            </button>
+            <button class="navbar-toggler border-0" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto gap-1">
+                <!-- Los links apuntan a secciones de index.html, no de esta página -->
+                <!-- Al hacer clic, carga index.html y hace scroll a la sección correspondiente -->
+                <!-- Ningún link quedará marcado como activo porque esta página no tiene esos IDs -->
+                <li class="nav-item"><a class="nav-link" href="index.html#inicio">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#experiencia">Experiencia</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#habilidades">Habilidades</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#proyectos">Proyectos</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#educacion">Educación</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- cert-page-bg en styles.css: fondo alternativo, ocupa mínimo toda la pantalla y tiene padding arriba para el navbar -->
+<div class="cert-page-bg">
+    <div class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+
+        <!-- Encabezado centrado con margen inferior antes del contenido -->
+        <div class="text-center mb-5">
+            <span class="section-label">Certificación</span>
+            <h2 class="section-heading">Curso de Hacking Ético</h2>
+            <!-- Línea decorativa centrada -->
+            <div class="section-divider mx-auto"></div>
+        </div>
+
+        <!-- Dos columnas con gap de 3rem, alineadas desde arriba sin estirarse -->
+        <div class="row g-5 align-items-start">
+
+            <!-- Columna izquierda: imagen del certificado y botón de descarga -->
+            <div class="col-lg-6">
+
+                <div class="cert-image-wrapper">
+                    <img alt="Certificado Curso de Hacking Ético — BIG school" class="img-fluid rounded-3" src="images/certificadohacking%C3%A9tico%20.jpg">
+                </div>
+
+                <div class="d-flex justify-content-center mt-4">
+                    <!-- download fuerza la descarga en lugar de abrir el PDF en el navegador -->
+                    <a class="btn btn-primary" download href="docs/CERTIFICADO%20DE%20HACKING%20%C3%89TICO%20.pdf">Descargar PDF</a>
+                </div>
+
+            </div>
+
+            <!-- Columna derecha: descripción y lista de aprendizajes -->
+            <div class="col-lg-6">
+
+                <span class="section-label">¿Qué aprendí?</span>
+
+                <h3 class="section-heading mb-3">Pensar como atacante<br>para defender mejor</h3>
+
+                <p class="section-intro">
+                    Este certificado acredita mi asistencia a las jornadas del <strong>Curso de Hacking Ético: de 0 a Hackear Aplicaciones</strong>, impartido por BIG school con una duración de 6 horas. Di mis primeros pasos en ciberseguridad y comprendí cómo se analizan y vulneran las aplicaciones de forma ética y controlada.
+                </p>
+
+                <ul class="cert-list mt-4">
+                    <li>Fundamentos de hacking ético y ciberseguridad</li>
+                    <li>Mentalidad de atacante para detectar vulnerabilidades</li>
+                    <li>Análisis de la seguridad de aplicaciones</li>
+                    <li>Vulnerabilidades web más comunes</li>
+                    <li>Prácticas éticas y legales en pruebas de seguridad</li>
+                    <li>Buenas prácticas para desarrollar software más seguro</li>
+                </ul>
+
+                <p class="section-intro mt-4">
+                    Este curso me dio una nueva perspectiva como desarrollador: entender cómo se ataca una aplicación es el primer paso para construirlas seguras desde el diseño.
+                </p>
+
+                <div class="mt-4">
+                    <!-- Carga index.html y hace scroll directo a la sección #educacion -->
+                    <a class="btn btn-outline-primary" href="index.html#educacion">← Volver a Educación</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- El mismo script.js de todas las páginas del portafolio -->
+<!-- Aquí activa: toggle de tema y sombra del navbar al hacer scroll -->
+<!-- No activa: animaciones .reveal, active nav link ni barras de progreso porque no existen en esta página -->
+<script src="script.js"></script>
+</body>
+      </html>
