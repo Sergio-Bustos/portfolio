@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<!-- Declaración del tipo de documento: indica al navegador que este es HTML5 -->
+<html lang="es">
+<!-- Etiqueta raíz del documento. lang="es" indica que el idioma es español (importante para SEO y accesibilidad) -->
+
+<head>
+    <script>document.documentElement.classList.add('js')</script>
+    <!-- HEAD: contiene metadatos, estilos y scripts que no se muestran directamente en la página -->
+
+    <meta charset="UTF-8">
+    <!-- Define la codificación de caracteres como UTF-8, permite usar tildes, ñ y símbolos especiales -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la página sea responsiva: ajusta el ancho al dispositivo y establece el zoom inicial en 1 -->
+
+    <title>Sergio Bustos — Desarrollador de Software &amp; futuro Ing. Eléctrico</title>
+    <!-- Título que aparece en la pestaña del navegador y en resultados de búsqueda (SEO) -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Importa Bootstrap 5.3.8 desde CDN: framework CSS con grid system, utilidades y componentes predefinidos -->
+
+    <link href="images/favicon.ico" rel="icon" type="image/png">
+    <!-- Define el ícono pequeño que aparece en la pestaña del navegador (favicon), cargado desde la carpeta images/ -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Importa el JavaScript de Bootstrap (incluye Popper.js): necesario para componentes interactivos como carruseles, dropdowns y colapsos -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Importa 3 fuentes desde Google Fonts:
+         · Plus Jakarta Sans (pesos 300-800): fuente principal para cuerpo y UI
+         · Playfair Display (itálica y normal, pesos 700-800): para títulos decorativos con serifa
+         · JetBrains Mono (pesos 400-500): para etiquetas de tecnología y código
+         display=swap evita el bloqueo de renderizado mientras carga la fuente -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Importa Bootstrap Icons v1.11.3: librería de íconos SVG usados en toda la interfaz (GitHub, LinkedIn, WhatsApp, etc.) -->
+
+    <link href="styles.css" rel="stylesheet">
+    <!-- Importa la hoja de estilos principal del portafolio (variables, temas, componentes personalizados) -->
+
+    
+    <!-- Importa los estilos de la animación de flotación de los íconos de habilidades técnicas -->
+
+</head>
+
+<body class="has-preloader">
+
+<!-- Pantalla de carga: cortina animada que se abre al terminar de cargar (CSS + script.js) -->
+<div class="preloader" aria-hidden="true">
+    <div class="pl-core"><span class="pl-logo">SB</span><i class="bi bi-lightning-charge-fill pl-bolt"></i></div>
+    <div class="pl-bar"><span></span></div>
+</div>
+
+<!-- BODY: todo el contenido visible de la página va aquí -->
+
+<!-- ══════════════════════════════════════════════════════════════
+     BARRA DE NAVEGACIÓN FIJA
+     Permanece visible en la parte superior al hacer scroll.
+     En móvil colapsa en un menú hamburguesa.
+══════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <!-- nav: etiqueta semántica HTML5 para navegación
+         navbar: clase Bootstrap que da estilos base al nav
+         navbar-expand-lg: en pantallas >= lg (992px) el menú se muestra horizontal; en menores, colapsa
+         fixed-top: mantiene el nav fijo en la parte superior de la pantalla al hacer scroll -->
+
+    <div class="container">
+        <!-- container: centra el contenido y aplica márgenes laterales responsivos (Bootstrap) -->
+
+        <a class="navbar-brand" href="index.html">SB</a>
+        <!-- navbar-brand: logo/marca del sitio. Las iniciales "SB" enlazan a la página principal -->
+
+        <div class="d-flex align-items-center gap-2">
+            <!-- d-flex: activa flexbox. align-items-center: alinea verticalmente al centro. gap-2: espacio entre hijos -->
+
+            <button aria-label="Cambiar tema" class="theme-toggle fs-5 text-secondary" id="themeToggle">
+                <!-- Botón para alternar entre tema oscuro/claro.
+                     aria-label: texto accesible para lectores de pantalla
+                     theme-toggle: clase personalizada para estilos del botón circular
+                     fs-5: tamaño de fuente Bootstrap (1.25rem)
+                     id="themeToggle": referenciado por script.js para manejar el click -->
+                <i class="bi bi-sun-fill theme-icon" id="themeIcon"></i>
+                <!-- Ícono de sol de Bootstrap Icons. script.js cambia entre bi-sun-fill y bi-moon-fill según el tema activo -->
+            </button>
+
+            <button class="navbar-toggler border-0" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <!-- Botón hamburguesa visible solo en móvil (< lg).
+                     navbar-toggler: clase Bootstrap para el botón de toggle
+                     border-0: elimina el borde predeterminado
+                     data-bs-target="#navbarNav": indica qué elemento colapsar/expandir
+                     data-bs-toggle="collapse": activa el comportamiento de colapso de Bootstrap -->
+                <span class="navbar-toggler-icon"></span>
+                <!-- Ícono de las tres líneas horizontales (hamburguesa), generado por Bootstrap via CSS -->
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- collapse: oculta el elemento en móvil por defecto
+                 navbar-collapse: clase Bootstrap para el contenedor colapsable del menú
+                 id="navbarNav": objetivo del botón hamburguesa -->
+
+            <ul class="navbar-nav ms-auto gap-1">
+                <!-- navbar-nav: lista de navegación Bootstrap sin estilos de lista
+                     ms-auto: margin-start automático, empuja el menú hacia la derecha
+                     gap-1: pequeño espacio entre ítems del menú -->
+
+                <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                <!-- nav-item: ítem de la lista de navegación
+                     nav-link: enlace de navegación con estilos Bootstrap
+                     href="#inicio": enlace interno que hace scroll hasta la sección con id="inicio" -->
+
+                <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
+                <!-- Enlace interno a la sección de Experiencia -->
+
+                <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+                <!-- Enlace interno a la sección de Habilidades Técnicas.-->
+
+                <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+                <!-- Enlace interno a la sección de Proyectos -->
+
+                <li class="nav-item"><a class="nav-link" href="#educacion">Educación</a></li>
+                <!-- Enlace interno a la sección de Formación Académica -->
+
+                <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                <!-- Enlace interno a la sección de Contacto -->
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- FIN: Barra de navegación -->
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECCIÓN HERO (pantalla de bienvenida principal)
+     Primera sección visible al cargar la página.
+     Ocupa el 100% del alto de la pantalla (min-height: 100svh).
+══════════════════════════════════════════════════════════════ -->
+<section class="hero-section" id="inicio">
+    <a class="scroll-hint" href="#experiencia" aria-label="Bajar"><span></span></a>
+    <!-- section: etiqueta semántica HTML5 para secciones de contenido
+         hero-section: clase personalizada con gradiente de fondo, padding y efectos decorativos
+         id="inicio": objetivo del enlace de navegación "#inicio" -->
+
+    <div class="container hero-content">
+        <!-- container: centra y limita el ancho del contenido
+             hero-content: posiciona el contenido sobre los efectos decorativos (z-index: 1) -->
+
+        <div class="row align-items-center gy-5">
+            <!-- row: fila del grid de Bootstrap (12 columnas)
+                 align-items-center: alinea verticalmente al centro las columnas
+                 gy-5: espacio vertical (gutter-y) entre columnas en móvil cuando se apilan -->
+
+            <!-- ── Columna izquierda: texto principal ── -->
+            <div class="col-lg-7 text-center text-lg-start">
+                <!-- col-lg-7: en pantallas >= lg ocupa 7 de 12 columnas; en menores, 12 (full width)
+                     text-center: texto centrado en móvil
+                     text-lg-start: texto alineado a la izquierda en pantallas >= lg -->
+
+                <div class="hero-label animate-fade-up">Disponible para trabajar</div>
+                <!-- Etiqueta de estado laboral con punto verde animado (pulsante).
+                     animate-fade-up: animación de entrada desde abajo con fadeIn -->
+
+                <h1 class="hero-title animate-fade-up delay-1">Sergio<br><span>Bustos.</span></h1>
+                <!-- Línea de roles con efecto máquina de escribir (script.js) -->
+                <div class="hero-roles animate-fade-up delay-2" aria-live="off"><span class="role-prompt">&gt;</span> <span class="role-text">Técnico en Programación de Software</span><span class="role-caret"></span></div>
+                <!-- Título principal H1 con el nombre del desarrollador.
+                     hero-title: fuente grande (clamp 3.2rem - 5.5rem), peso 800
+                     br: salto de línea entre nombre y apellido
+                     span: aplica color rojo (--red) y fuente Playfair Display itálica al apellido
+                     delay-1: retraso de 0.10s en la animación de entrada -->
+
+                <p class="hero-subtitle animate-fade-up delay-3">Técnico en Programación de Software en la meta final y pronto Ingeniero Eléctrico. Desarrollador especializado en Python &amp; Flask: construyo aplicaciones web eficientes, escalables y con buenas prácticas desde Palmira, Colombia.</p>
+                <!-- Descripción breve del perfil profesional.
+                     &amp; es la entidad HTML para el carácter "&"
+                     delay-2: retraso de 0.22s en la animación -->
+
+                
+
+                <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start mt-4 animate-fade-up delay-4">
+                    <!-- Botones de llamada a la acción.-->
+
+                    <a class="btn btn-primary btn-lg" href="#proyectos">Ver proyectos</a>
+                    <!-- Botón primario con gradiente que lleva a la sección de proyectos.
+                         btn-lg: tamaño grande (padding extra) -->
+
+                    <a class="contact-btn btn" href="#contacto">Contacto</a>
+                    <!-- Botón secundario con estilo glassmorphism (fondo semitransparente) -->
+
+                    <a class="btn btn-cv btn-lg" href="/docs/CV-Sergio_Bustos.pdf" target="_blank">
+                        <i class="bi bi-file-earmark-person-fill me-2"></i>Revisar mi CV
+                    </a>
+                    <!-- Botón para ver mi CV -->
+                </div>
+
+            </div>
+            <!-- FIN: Columna izquierda -->
+
+            <!-- ── Columna derecha: elemento visual decorativo ── -->
+            <div class="col-lg-5 text-center animate-fade-up delay-4">
+                <!-- col-lg-5: ocupa 5 de 12 columnas en >= lg (complementa las 7 de la izquierda)
+                     text-center: centra el blob horizontalmente -->
+
+                <div class="hero-visual d-inline-block">
+                    <!-- hero-visual: wrapper relativo para el blob animado -->
+
+                    <div class="orbit orbit-2"><i class="orbit-dot"></i></div>
+                    <div class="orbit orbit-1"><i class="orbit-dot"></i></div>
+                    <div class="hero-core"><div class="hero-blob"><span>SB</span></div></div>
+                    <span class="float-chip chip-a" style="--depth:-26">Python</span>
+                    <span class="float-chip chip-b" style="--depth:34">Flask</span>
+                    <span class="float-chip chip-c" style="--depth:22">SENA · Técnico</span>
+                    <span class="float-chip chip-d" style="--depth:-30"><i class="bi bi-lightning-charge-fill"></i> Ing. Eléctrica</span>
+                    <!-- Círculo decorativo con gradiente azul-rojo animado (floatBlob: sube/baja cada 6s).
+                         Muestra las iniciales "SB" como elemento visual de identidad -->
+                </div>
+            </div>
+            <!-- FIN: Columna derecha -->
+
+        </div>
+    </div>
+</section>
+<!-- FIN: Sección Hero -->
+
+<!-- Cinta infinita de tecnologías (antes eran las insignias del hero) -->
+<div class="marquee" aria-label="Tecnologías">
+    <div class="marquee-row">
+        <div class="marquee-track">
+            <div class="marquee-group"><span class="hero-badge">Python</span><span class="hero-badge">React</span><span class="hero-badge">PHP</span><span class="hero-badge">Flask</span><span class="hero-badge">PostgreSQL</span><span class="hero-badge">Git &amp; GitHub</span><span class="hero-badge">HTML5 · CSS3</span><span class="hero-badge">JavaScript</span></div>
+            <div class="marquee-group" aria-hidden="true"><span class="hero-badge">Python</span><span class="hero-badge">React</span><span class="hero-badge">PHP</span><span class="hero-badge">Flask</span><span class="hero-badge">PostgreSQL</span><span class="hero-badge">Git &amp; GitHub</span><span class="hero-badge">HTML5 · CSS3</span><span class="hero-badge">JavaScript</span></div>
+        </div>
+    </div>
+    <div class="marquee-row reverse">
+        <div class="marquee-track">
+            <div class="marquee-group"><span class="hero-badge">Figma</span><span class="hero-badge">Bootstrap</span><span class="hero-badge">Docker</span><span class="hero-badge">Vercel</span><span class="hero-badge">SCRUM</span><span class="hero-badge">VS Code</span><span class="hero-badge">Jupyter Notebook</span><span class="hero-badge">Cursor IDE</span></div>
+            <div class="marquee-group" aria-hidden="true"><span class="hero-badge">Figma</span><span class="hero-badge">Bootstrap</span><span class="hero-badge">Docker</span><span class="hero-badge">Vercel</span><span class="hero-badge">SCRUM</span><span class="hero-badge">VS Code</span><span class="hero-badge">Jupyter Notebook</span><span class="hero-badge">Cursor IDE</span></div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECCIÓN "SOBRE MÍ"
+     Presenta una breve biografía y estadísticas del desarrollador.
+══════════════════════════════════════════════════════════════ -->
+<section class="py-5" style="padding: 6rem 0 !important;">
+    <!-- py-5: padding vertical de Bootstrap (3rem arriba y abajo)
+         style inline con !important sobreescribe Bootstrap para aplicar 6rem de padding -->
+
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <!-- g-5: gutter (espacio) de 3rem entre columnas horizontal y vertical -->
+
+            <!-- ── Columna izquierda: texto biográfico ── -->
+            <div class="col-lg-7 reveal">
+                <!-- reveal: clase que inicia con opacity:0 y translateY(22px).
+                             script.js la observa con IntersectionObserver y añade "visible" al entrar en viewport,
+                             disparando la transición de aparición -->
+
+                <span class="section-label">Sobre mí</span>
+                <!-- Etiqueta decorativa de sección con línea lateral y texto en mayúsculas (color accent) -->
+
+                <h2 class="section-heading mt-2">Apasionado por construir<br>cosas que importan</h2>
+                <!-- Título H2 de la sección. mt-2: margen superior pequeño -->
+
+                <div class="section-divider mt-4 mb-4"></div>
+                <!-- Línea decorativa con gradiente rojo-dorado. mt-4 mb-4: márgenes verticales -->
+
+                <p class="section-intro">Soy técnico en programación de software del SENA, en la meta final de mi formación, y pronto ingeniero eléctrico. Me especializo en desarrollo web con Python y Flask, creando soluciones web robustas y escalables.</p>
+                <!-- Primer párrafo de la biografía. section-intro: estilo de texto secundario (color --text2) -->
+
+                <p class="section-intro mt-3">Cada proyecto es una oportunidad de aprender. Soy analítico, comprometido con las buenas prácticas y siempre dispuesto a enfrentar nuevos desafíos técnicos.</p>
+                <!-- Segundo párrafo de la biografía con margin-top de 1rem -->
+
+                <div class="d-flex flex-wrap gap-2 mt-4">
+                    <!-- Contenedor flex de badges informativos personales -->
+                    <span class="info-badge">Palmira, Colombia</span>
+                    <!-- Badge con ubicación geográfica. info-badge: píldora con borde y fondo de tarjeta -->
+                    <span class="info-badge">Programación</span>
+                    <!-- Badge de área de especialización -->
+                    <span class="info-badge">SENA — Técnico</span>
+                    <span class="info-badge">Pronto Ing. Eléctrico</span>
+                    <!-- Badge de institución educativa actual -->
+                </div>
+            </div>
+            <!-- FIN: Columna biográfica -->
+
+            <!-- ── Columna derecha: tarjetas de estadísticas ── -->
+            <div class="col-lg-5 reveal">
+
+                <div class="stat-card mb-3">
+                    <!-- stat-card: tarjeta con borde superior degradado rojo-dorado, hover con sombra
+                         mb-3: margen inferior para separar de la siguiente tarjeta -->
+                    <span class="stat-number" data-count="3" data-suffix="+">3+</span>
+                    <!-- Número grande destacado en color accent. stat-number: fuente 3rem, peso 800 -->
+                    <div class="stat-label">Proyectos Completados</div>
+                    <!-- Descripción del estadístico en color secundario -->
+                </div>
+
+                <div class="stat-card">
+                    <!-- Segunda tarjeta de estadísticas, sin margen inferior -->
+                    <span class="stat-number" data-count="10" data-suffix="+">10+</span>
+                    <div class="stat-label">Tecnologías en formación</div>
+                </div>
+
+            </div>
+            <!-- FIN: Columna estadísticas -->
+
+        </div>
+    </div>
+</section>
+<!-- FIN: Sección Sobre mí -->
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECCIÓN: EXPERIENCIA — Timeline estilo LinkedIn
+══════════════════════════════════════════════════════════════ -->
+<section class="section-bg py-5" id="experiencia">
+
+    <div class="container py-4">
+
+        <div class="text-center mb-5 reveal">
+            <span class="section-label">Trayectoria</span>
+            <h2 class="section-heading mt-2">Experiencia</h2>
+            <div class="section-divider mx-auto mt-4"></div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="exp-timeline">
+
+            <!-- Item 1: Desarrollador e Investigador Junior — SENA/SENNOVA -->
+            <div class="exp-item reveal">
+                <div class="exp-dot"></div>
+                <div class="exp-card card card-hover">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start gap-3">
+                            <!-- Logo organización -->
+                            
+                            <div class="flex-1">
+                                <h5 class="fw-bold mb-0" style="font-size:1rem;">Desarrollador de Software e Investigador Junior</h5>
+                                <p class="exp-company">SENA / SENNOVA | Proyecto Investigativo - Sistema de Carnetización Digital</p>
+                                <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                                    <span class="exp-date"><i class="bi bi-calendar3 me-1"></i>Marzo 2026 – Julio 2026</span>
+                                    <span class="exp-badge">Contrato temporal</span>
+                                    <span class="exp-badge exp-badge-location"><i class="bi bi-geo-alt me-1"></i>Palmira, Colombia · Híbrido</span>
+                                </div>
+                                <p class="exp-desc">Desarrollo del Sistema de Carnetización Digital Institucional bajo marco de investigación SENNOVA.</p>
+                                <div class="d-flex flex-wrap gap-2 mt-3">
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">Flask</span>
+                                    <span class="skill-tag">OpenCV</span>
+                                    <span class="skill-tag">Pandas</span>
+                                    <span class="skill-tag">ETL</span>
+                                    <span class="skill-tag">Investigación y Desarrollo</span>
+                                    <span class="skill-tag">SQL</span>
+                                    <span class="skill-tag">SQLite</span>
+                                    <span class="skill-tag">HTML y CSS</span>
+                                    <span class="skill-tag">Limpieza de datos</span>
+                                    <span class="skill-tag">QRCode</span>
+                                    <span class="skill-tag">SCRUM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Desarrollador Full-Stack Junior & Scrum Master -->
+            <div class="exp-item reveal">
+                <div class="exp-dot"></div>
+                <div class="exp-card card card-hover">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start gap-3">
+                            
+                            <div class="flex-1">
+                                <h5 class="fw-bold mb-0" style="font-size:1rem;">Desarrollador Full-Stack Junior &amp; Scrum Master</h5>
+                                <p class="exp-company">SENA — Proyecto Formativo | NoteFlow - Bloc de Notas Web</p>
+                                <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                                    <span class="exp-date"><i class="bi bi-calendar3 me-1"></i>Octubre. 2025 – Junio 2026</span>
+                                    <span class="exp-badge">Jornada parcial</span>
+                                    <span class="exp-badge exp-badge-location"><i class="bi bi-geo-alt me-1"></i>Palmira, Colombia · Híbrido</span>
+                                </div>
+                                <p class="exp-desc">Liderazgo técnico y desarrollo del proyecto <strong>"NoteFlow"</strong>, solución integral para la gestión eficiente de notas y organización personal.</p>
+                                <div class="exp-bullets">
+                                    <div class="exp-bullet"><span class="exp-bullet-dot"></span><strong>Gestión Ágil:</strong> Rol de Scrum Master, coordinando Dailies, Retrospectivas y Sprints.</div>
+                                    <div class="exp-bullet"><span class="exp-bullet-dot"></span><strong>Backend:</strong> Implementación de lógica de negocio y persistencia de datos.</div>
+                                    <div class="exp-bullet"><span class="exp-bullet-dot"></span><strong>Frontend:</strong> Interfaces dinámicas y responsivas con experiencia de usuario fluida.</div>
+                                    <div class="exp-bullet"><span class="exp-bullet-dot"></span><strong>Calidad:</strong> Refactorización de componentes para mejorar escalabilidad.</div>
+                                </div>
+                                <div class="d-flex flex-wrap gap-2 mt-3">
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">Flask</span>
+                                    <span class="skill-tag">PostgreSQL</span>
+                                    <span class="skill-tag">Docker</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">SCRUM</span>
+                                    <span class="skill-tag">FetchAPI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: Desarrollo Propio -->
+            <div class="exp-item reveal">
+                <div class="exp-dot"></div>
+                <div class="exp-card card card-hover">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start gap-3">
+                            
+                            <div class="flex-1">
+                                <h5 class="fw-bold mb-0" style="font-size:1rem;">Desarrollador de Software</h5>
+                                <p class="exp-company">Desarrollo Propio</p>
+                                
+                                <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                                    <span class="exp-date"><i class="bi bi-calendar3 me-1"></i>2025 – Actualidad</span>
+                                    <span class="exp-badge exp-badge-location"><i class="bi bi-geo-alt me-1"></i>Palmira, Colombia · Híbrido</span>
+                                </div>
+                                <p class="exp-desc">Desarrollo de aplicaciones web especializadas en backend con Flask y PostgreSQL, con interfaces limpias y funcionales. Proyectos académicos y personales aplicando buenas prácticas y metodologías modernas.</p>
+                                <div class="d-flex flex-wrap gap-2 mt-3">
+                                    <span class="skill-tag">Backend</span>
+                                    <span class="skill-tag">Frontend</span>
+                                    <span class="skill-tag">Database</span>
+                                    <span class="skill-tag">Git</span>
+                                    <span class="skill-tag">GitHub</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECCIÓN: HABILIDADES TÉCNICAS
+     Grid de íconos SVG animados organizados por categoría,
+     más las habilidades blandas (soft skills) al final.
+══════════════════════════════════════════════════════════════ -->
+<section class="py-5" id="habilidades">
+
+    <div class="container py-4">
+
+        <!-- Cabecera de la sección -->
+        <div class="text-center mb-5 reveal">
+            <span class="section-label">Stack</span>
+            <h2 class="section-heading mt-2">Habilidades Técnicas</h2>
+            <div class="section-divider mx-auto mt-4"></div>
+            <br>
+            <p class="text-muted">Un junior-trainee en formacion técnica de estas herramientas para mi stack:</p>
+            <!-- Descripción introductoria del nivel de experiencia -->
+        </div>
+
+        <div class="row g-4">
+
+            <!-- ═══════════════════════════════════════
+                 CATEGORÍA 1: BACKEND DEVELOPMENT
+            ═══════════════════════════════════════ -->
+            <div class="col-md-6 reveal">
+                <!-- col-md-6: ocupa la mitad del ancho en pantallas >= md -->
+                <div class="card h-100 card-hover">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-4" style="font-size:1rem; letter-spacing:-.01em;">Backend Development</h5>
+                        <!-- Título de categoría con tracking negativo para aspecto más compacto -->
+                        <div class="skills-grid">
+                            <span class="tech-chip" style="--i:0">Python</span>
+                            <span class="tech-chip" style="--i:1">PHP</span>
+                            <span class="tech-chip" style="--i:2">Flask</span>
+                            <span class="tech-chip" style="--i:3">APIs REST</span>
+                            <span class="tech-chip" style="--i:4">FetchAPI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN: Categoría Backend Development -->
+
+            <!-- ═══════════════════════════════════════
+                 CATEGORÍA 2: FRONTEND DEVELOPMENT
+            ═══════════════════════════════════════ -->
+            <div class="col-md-6 reveal">
+                <div class="card h-100 card-hover">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-4" style="font-size:1rem; letter-spacing:-.01em;">Frontend Development</h5>
+                        <div class="skills-grid">
+                            <span class="tech-chip" style="--i:0">HTML5</span>
+                            <span class="tech-chip" style="--i:1">CSS3</span>
+                            <span class="tech-chip" style="--i:2">Bootstrap</span>
+                            <span class="tech-chip" style="--i:3">JavaScript</span>
+                            <span class="tech-chip" style="--i:4">Figma</span>
+                            <span class="tech-chip" style="--i:5">React</span>
+                            <span class="tech-chip" style="--i:6">Responsive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN: Categoría Frontend Development -->
+
+            <!-- ═══════════════════════════════════════
+                 CATEGORÍA 3: BASE DE DATOS
+            ═══════════════════════════════════════ -->
+            <div class="col-md-6 reveal">
+                <div class="card h-100 card-hover">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-4" style="font-size:1rem; letter-spacing:-.01em;">Base de Datos</h5>
+                        <div class="skills-grid">
+                            <span class="tech-chip" style="--i:0">PostgreSQL</span>
+                            <span class="tech-chip" style="--i:1">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN: Categoría Base de Datos -->
+
+            <!-- ═══════════════════════════════════════
+                 CATEGORÍA 4: HERRAMIENTAS
+            ═══════════════════════════════════════ -->
+            <div class="col-md-6 reveal">
+                <div class="card h-100 card-hover">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-4" style="font-size:1rem; letter-spacing:-.01em;">Herramientas</h5>
+                        <div class="skills-grid">
+                            <span class="tech-chip" style="--i:0">Git / GitHub</span>
+                            <span class="tech-chip" style="--i:1">VS Code</span>
+                            <span class="tech-chip" style="--i:2">Cursor IDE</span>
+                            <span class="tech-chip" style="--i:3">Jupyter Notebook</span>
+                            <span class="tech-chip" style="--i:4">JIRA / Trello</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN: Categoría Herramientas -->
+
+            <!-- ═══════════════════════════════════════
+                 CATEGORÍA 5: DESPLIEGUE
+            ═══════════════════════════════════════ -->
+            <div class="col-md-6 reveal">
+                <div class="card h-100 card-hover">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-4" style="font-size:1rem; letter-spacing:-.01em;">Despliegue</h5>
+                        <div class="skills-grid">
+                            <span class="tech-chip" style="--i:0">Docker</span>
+                            <span class="tech-chip" style="--i:1">Vercel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN: Categoría Despliegue -->
+
+        </div>
+        <!-- FIN: row de habilidades técnicas -->
+
+
+        <!-- ═══════════════════════════════════════
+             HABILIDADES BLANDAS (Soft Skills)
+        ═══════════════════════════════════════ -->
+        <div class="mt-5">
+            <!-- mt-5: margen superior de 3rem para separar del bloque de técnicas -->
+
+            <div class="text-center mb-4 reveal">
+                <span class="section-label">Soft Skills</span>
+                <h2 class="section-heading mt-2">Habilidades Blandas</h2>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- Tarjeta: SCRUM -->
+                <div class="col-md-3 col-6 reveal">
+                    <!-- col-md-3: 4 tarjetas por fila en >= md. col-6: 2 tarjetas por fila en móvil -->
+                    <div class="card text-center h-100 card-hover">
+                        <div class="card-body p-4">
+                            <div><i class="bi bi-lightning-charge-fill fs-1 text-primary"></i></div>
+                            <!-- Ícono de rayo. fs-1: 2.5rem. text-primary: color accent del tema -->
+                            <h6 class="fw-bold mb-2">SCRUM</h6>
+                            <p class="text-muted" style="font-size:0.85rem; margin:0;">Metodología ágil con sólido manejo social</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta: Trabajo en Equipo -->
+                <div class="col-md-3 col-6 reveal">
+                    <div class="card text-center h-100 card-hover">
+                        <div class="card-body p-4">
+                            <div><i class="bi bi-people-fill fs-1 text-primary"></i></div>
+                            <!-- Ícono de grupo de personas -->
+                            <h6 class="fw-bold mb-2">Trabajo en Equipo</h6>
+                            <p class="text-muted" style="font-size:0.85rem; margin:0;">Colaboración efectiva e implementación de soluciones</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta: Liderazgo -->
+                <div class="col-md-3 col-6 reveal">
+                    <div class="card text-center h-100 card-hover">
+                        <div class="card-body p-4">
+                            <div><i class="bi bi-person-arms-up fs-1 text-primary"></i></div>
+                            <!-- Ícono de persona con brazos levantados -->
+                            <h6 class="fw-bold mb-2">Liderazgo</h6>
+                            <p class="text-muted" style="font-size:0.85rem; margin:0;">Toma de decisiones eficaces con respeto al equipo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta: Expresión / Comunicación -->
+                <div class="col-md-3 col-6 reveal">
+                    <div class="card text-center h-100 card-hover">
+                        <div class="card-body p-4">
+                            <div><i class="bi bi-chat-quote-fill fs-1 text-primary"></i></div>
+                            <!-- Ícono de burbuja de chat con comillas -->
+                            <h6 class="fw-bold mb-2">Expresión</h6>
+                            <p class="text-muted" style="font-size:0.85rem; margin:0;">Comunicación efectiva y clara con buenas prácticas</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- FIN: Soft Skills -->
+
+    </div>
+</section>
+<!-- FIN: Sección Habilidades Técnicas -->
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECCIÓN: PROYECTOS
+     Cada proyecto tiene su propio carrusel Bootstrap independiente.
+══════════════════════════════════════════════════════════════ -->
+<section class="section-bg py-5" id="proyectos">
+
+    <div class="container py-4">
+
+        <div class="text-center mb-5 reveal">
+            <span class="section-label">Portafolio</span>
+            <h2 class="section-heading mt-2">Proyectos</h2>
+            <div class="section-divider mx-auto mt-4"></div>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- PROYECTO 1: NoteFlow -->
+            <div class="col-md-4 reveal">
+                <div class="card h-100 card-hover project-card">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <h5 class="fw-bold mb-1">NoteFlow</h5>
+                        <p class="project-type">FullStack</p>
+                        <p class="text-muted small mb-2">Python · Flask · PostgreSQL · HTML · CSS · Bootstrap · FetchAPI · SCRUM</p>
+                        <p style="font-size:0.92rem; flex:1;">Gestor de notas completo con sistema CRUD, autenticación, semi-APIs RESTful y manejo robusto de errores.</p>
+                        <div class="d-flex flex-wrap gap-1 my-3">
+                            <span class="skill-tag">CRUD</span>
+                            <span class="skill-tag">Auth</span>
+                            <span class="skill-tag">API REST</span>
+                            <span class="skill-tag">Database</span>
+                            <span class="skill-tag">SCRUM</span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-primary btn-sm" href="https://github.com/Sergio-Bustos/NoteFlow" target="_blank"><i class="bi bi-github me-1"></i> GitHub</a>
+                            <a class="btn btn-outline-primary btn-sm" href="https://noteflow-production-a5ed.up.railway.app/" target="_blank">Ver web</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 2: CV Web -->
+            <div class="col-md-4 reveal">
+                <div class="card h-100 card-hover project-card">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <h5 class="fw-bold mb-1">CV Web</h5>
+                        <p class="project-type">Frontend</p>
+                        <p class="text-muted small mb-2">HTML · CSS · Bootstrap · JavaScript</p>
+                        <p style="font-size:0.92rem; flex:1;">Portafolio personal responsivo, moderno y optimizado para todo tipo de dispositivos.</p>
+                        <div class="d-flex flex-wrap gap-1 my-3">
+                            <span class="skill-tag">Responsive</span>
+                            <span class="skill-tag">Modern UI</span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-primary btn-sm" href="https://github.com/Sergio-Bustos/portfolio" target="_blank"><i class="bi bi-github me-1"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 3: Cambio Climático -->
+            <div class="col-md-4 reveal">
+                <div class="card h-100 card-hover project-card">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <h5 class="fw-bold mb-1">Cambio Climático</h5>
+                        <p class="project-type">Frontend</p>
+                        <p class="text-muted small mb-2">HTML · Bootstrap · CSS</p>
+                        <p style="font-size:0.92rem; flex:1;">Página web responsive sobre investigación científica y educativa del Cambio Climático global.</p>
+                        <div class="d-flex flex-wrap gap-1 my-3">
+                            <span class="skill-tag">Responsive</span>
+                            <span class="skill-tag">Modern UI</span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-primary btn-sm" href="https://github.com/Sergio-Bustos/Cambio-Climatico" target="_blank"><i class="bi bi-github me-1"></i> GitHub</a>
+                            <a class="btn btn-outline-primary btn-sm" href="https://el-cambio-climatico.vercel.app/" target="_blank">Ver web</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 4: Parking Center S.A.S -->
+            <div class="col-md-4 reveal">
+                <div class="card h-100 card-hover project-card">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <h5 class="fw-bold mb-1">Parking Center S.A.S</h5>
+                        <p class="project-type">App de escritorio</p>
+                        <p class="text-muted small mb-2">Python · Tkinter</p>
+                        <p style="font-size:0.92rem; flex:1;">Sistema automático de parqueadero que registra entradas/salidas, calcula tiempo y cobra según tipo de vehículo.</p>
+                        <div class="d-flex flex-wrap gap-1 my-3">
+                            <span class="skill-tag">Automático</span>
+                            <span class="skill-tag">Interactivo</span>
+                            <span class="skill-tag">Flexible</span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-primary btn-sm" href="https://github.com/Sergio-Bustos/Parking-Center-S.A.S" target="_blank"><i class="bi bi-github me-1"></i> GitHub</a>
+                            <a class="btn btn-outline-primary btn-sm" href="https://parking-center-s-a-s.vercel.app/" target="_blank">Instalar app</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 5: Carnetización Digital (SENNOVA) -->
+            <div class="col-md-4 reveal">
+                <div class="card h-100 card-hover project-card">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <h5 class="fw-bold mb-1">Carnetización Digital Institucional</h5>
+                        <p class="project-type">FullStack · SENNOVA</p>
+                        <p class="text-muted small mb-2">Python · Flask · Jinja2 · HTML · CSS · openpyxl · SCRUM</p>
+                        <p style="font-size:0.92rem; flex:1;">Desarrollo del sistema de carnetización digital institucional bajo marco de investigación SENNOVA.</p>
+                        <div class="d-flex flex-wrap gap-1 my-3">
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">SCRUM</span>
+                            <span class="skill-tag">openpyxl</span>
+                            <span class="skill-tag">ETL</span>
+                            <span class="skill-tag">Investigación y Desarrollo</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">OpenCV</span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-primary btn-sm" href="https://github.com/Sergio-Bustos/carnet_flask" target="_blank" rel="noopener noreferrer"><i class="bi bi-github me-1"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- FIN: Sección Proyectos -->
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECCIÓN: EDUCACIÓN
+     A) Formación Principal  B) Formación Complementaria
+══════════════════════════════════════════════════════════════ -->
+<section class="py-5" id="educacion">
+
+    <div class="container py-4">
+
+        <div class="text-center mb-5 reveal">
+            <span class="section-label">Académico</span>
+            <h2 class="section-heading mt-2">Formación Académica</h2>
+            <div class="section-divider mx-auto mt-4"></div>
+        </div>
+
+        <!-- ── A) Formación Principal ── -->
+        <div class="row g-4 justify-content-center mb-5">
+            <!-- justify-content-center: centra la tarjeta única en el row -->
+            <div class="col-md-6 reveal">
+                <div class="card text-center h-100 card-hover">
+                    <div class="card-body p-5">
+                        <!-- p-5: padding amplio para dar mayor importancia visual a la formación principal -->
+                        <div><i class="bi bi-mortarboard-fill fs-1 text-primary"></i></div>
+                        <!-- Ícono de birrete/graduación -->
+                        <h5 class="fw-bold mb-1">Técnico en Programación de Software</h5>
+                        <p class="text-muted mb-3">SENA</p>
+                        <p class="mb-4" style="font-size:0.92rem;">Formación integral en desarrollo de software, bases de datos y metodologías ágiles.</p>
+                        <a class="btn btn-primary" href="certificadotecnico.html" target="_blank">Ver certificado</a>
+                        <!-- Enlace al archivo local HTML del certificado técnico -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── B) Formación Complementaria ── -->
+        <div class="text-center mb-4 reveal">
+            <span class="section-label">Plus</span>
+            <h2 class="section-heading mt-2">Formación Complementaria</h2>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Certificado 1: Variables Python — SENA -->
+            <div class="col-md-4 reveal">
+                <div class="card text-center h-100 card-hover">
+                    <div class="card-body p-4">
+                        <div><i class="bi bi-code-slash fs-1 text-primary"></i></div>
+                        <!-- Ícono de código </> -->
+                        <h6 class="fw-bold mb-1">Variables y estructuras de control en Python</h6>
+                        <p class="text-muted small mb-3">SENA</p>
+                        <p class="mb-4" style="font-size:0.87rem;">Primeros pasos hacia Python y sus fundamentos bases.</p>
+                        <a class="btn btn-primary btn-sm" href="certificadopython.html" target="_blank">Ver certificado</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificado 2: POO — Capacítate para el empleo -->
+            <div class="col-md-4 reveal">
+                <div class="card text-center h-100 card-hover">
+                    <div class="card-body p-4">
+                        <div><i class="bi bi-code-slash fs-1 text-primary"></i></div>
+                        <h6 class="fw-bold mb-1">POO — Programación Orientada a Objetos</h6>
+                        <p class="text-muted small mb-3">Capacítate para el empleo</p>
+                        <p class="mb-4" style="font-size:0.87rem;">POO avanzada con refactorización, Tkinter y conceptos avanzados.</p>
+                        <a class="btn btn-primary btn-sm" href="certificadopoo.html" target="_blank">Ver certificado</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificado 3: Inglés Básico — SENA -->
+            <div class="col-md-4 reveal">
+                <div class="card text-center h-100 card-hover">
+                    <div class="card-body p-4">
+                        <div><i class="bi bi-translate fs-1 text-primary"></i></div>
+                        <!-- Ícono de traducción/idiomas -->
+                        <h6 class="fw-bold mb-1">Inglés Básico</h6>
+                        <p class="text-muted small mb-3">SENA</p>
+                        <p class="mb-4" style="font-size:0.87rem;">Aprendizaje inicial del idioma inglés con bases escritas y orales.</p>
+                        <a class="btn btn-primary btn-sm" href="certificadoingles.html" target="_blank">Ver certificado</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificado 4: SCRUM — SENA -->
+            <div class="col-md-4 reveal">
+                <div class="card text-center h-100 card-hover">
+                    <div class="card-body p-4">
+                        <div><i class="bi bi-lightning-charge-fill fs-1 text-primary"></i></div>
+                        <h6 class="fw-bold mb-1">Aplicación de la Metodología SCRUM</h6>
+                        <p class="text-muted small mb-3">SENA</p>
+                        <p class="mb-4" style="font-size:0.87rem;">Metodologías ágiles para proyectos de desarrollo de software.</p>
+                        <a class="btn btn-primary btn-sm" href="certificadoscrum.html" target="_blank">Ver certificado</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificado 5: Marca Personal — Platzi -->
+            <div class="col-md-4 reveal">
+                <div class="card text-center h-100 card-hover">
+                    <div class="card-body p-4">
+                        <div><i class="bi bi-person-fill fs-1 text-primary"></i></div>
+                        <!-- Ícono de perfil/persona -->
+                        <h6 class="fw-bold mb-1">Marca Personal</h6>
+                        <p class="text-muted small mb-3">Platzi</p>
+                        <p class="mb-4" style="font-size:0.87rem;">Marca y desarrollo personal en el entorno profesional digital.</p>
+                        <a class="btn btn-primary btn-sm" href="certificadomarcapersonal.html" target="_blank">Ver certificado</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificado 6: HTML & CSS — Udemy -->
+            <div class="col-md-4 reveal">
+                <div class="card text-center h-100 card-hover">
+                    <div class="card-body p-4">
+                        <div><i class="bi bi-code-slash fs-1 text-primary"></i></div>
+                        <h6 class="fw-bold mb-1">Complete Guide in HTML &amp; CSS - Build Responsive Website</h6>
+                        <!-- &amp; es la entidad HTML para "&", necesaria dentro del contenido HTML -->
+                        <p class="text-muted small mb-3">Udemy</p>
+                        <p class="mb-4" style="font-size:0.87rem;">Fundamentos profesionales en HTML y CSS.</p>
+                        <a class="btn btn-primary btn-sm" href="certificadohtmlycss.html" target="_blank">Ver certificado</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificado 7: Python & Flask — Udemy -->
+            <div class="col-md-4 reveal">
+                <div class="card text-center h-100 card-hover">
+                    <div class="card-body p-4">
+                        <div><i class="bi bi-code-slash fs-1 text-primary"></i></div>
+                        <h6 class="fw-bold mb-1">Python And Flask Framework Complete Course</h6>
+                        <p class="text-muted small mb-3">Udemy</p>
+                        <p class="mb-4" style="font-size:0.87rem;">Fundamentos profesionales en Python con Flask.</p>
+                        <a class="btn btn-primary btn-sm" href="certificadodeflask.html" target="_blank">Ver certificado</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificado 8: Hacking Ético — BIG school -->
+            <div class="col-md-4 reveal">
+                <div class="card text-center h-100 card-hover">
+                    <div class="card-body p-4">
+                        <div><i class="bi bi-shield-lock-fill fs-1 text-primary"></i></div>
+                        <!-- Ícono de escudo con candado: ciberseguridad -->
+                        <h6 class="fw-bold mb-1">Curso de Hacking Ético: de 0 a Hackear Aplicaciones</h6>
+                        <p class="text-muted small mb-3">BIG school</p>
+                        <p class="mb-4" style="font-size:0.87rem;">Introducción a la ciberseguridad y al análisis ético de vulnerabilidades en aplicaciones.</p>
+                        <a class="btn btn-primary btn-sm" href="certificadohackingetico.html" target="_blank">Ver certificado</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- FIN: Sección Educación -->
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECCIÓN: CONTACTO
+     CTA con fondo oscuro y botones de contacto directo.
+══════════════════════════════════════════════════════════════ -->
+<section class="contact-section py-5" id="contacto">
+    <!-- contact-section: fondo muy oscuro con gradiente y cuadrícula decorativa (::before) -->
+
+    <div class="container py-5 text-center position-relative" style="z-index:1;">
+        <!-- position-relative + z-index:1: contenido por encima de los pseudo-elementos decorativos -->
+
+        <div class="reveal">
+
+            <span class="hero-label d-inline-flex" style="border-color:rgba(255,255,255,.14); margin-bottom:1.25rem;">Conectemos</span>
+            <!-- Reutiliza hero-label para consistencia. borde más sutil para el contexto oscuro -->
+
+            <h2 class="section-heading text-white mb-3" style="font-size:clamp(2.2rem, 4.5vw, 3.25rem); letter-spacing:-.045em;">¿Tienes un proyecto<br>en mente?</h2>
+            <!-- clamp(): tamaño fluido entre 2.2rem (móvil) y 3.25rem (desktop) -->
+
+            <p style="color:rgba(240,237,230,.45); max-width:420px; margin:0 auto 2.5rem; font-size:1rem; line-height:1.8;">Siempre estoy abierto a colaboraciones, proyectos interesantes y nuevas oportunidades. ¡Hablemos!</p>
+            <!-- color con opacidad 45%: texto sutil sobre fondo oscuro. margin:0 auto centra horizontalmente -->
+
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <!-- flex-wrap: los botones saltan a nueva línea en pantallas pequeñas -->
+
+                <a class="contact-btn btn" href="mailto:sergiobustosmondragon@gmail.com"><i class="bi bi-envelope-at-fill fs-7 text-primary"></i> Email</a>
+                <!-- mailto: abre el cliente de correo del usuario con la dirección predefinida -->
+
+                <a class="contact-btn btn" href="https://www.linkedin.com/in/sergioabustosm" target="_blank"><i class="bi bi-linkedin fs-7 text-primary"></i> LinkedIn</a>
+                <!-- Enlace al perfil de LinkedIn -->
+
+                <a class="contact-btn btn" href="https://github.com/Sergio-Bustos" target="_blank"><i class="bi bi-github fs-7 text-primary"></i> GitHub</a>
+                <!-- Enlace al perfil de GitHub -->
+
+                <a class="contact-btn btn" href="https://wa.me/573136194040?text=Hola%20Sergio,%20me%20interesa%20contactarte%20acerca%20de%20tu%20trabajo." target="_blank"><i class="bi bi-whatsapp fs-7 text-primary"></i> WhatsApp</a>
+                <!-- wa.me: URL Click-to-Chat de WhatsApp con número internacional (+57 Colombia)
+                     ?text=: mensaje predefinido en URL encoding (%20 = espacio) -->
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- FIN: Sección Contacto -->
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     PIE DE PÁGINA
+══════════════════════════════════════════════════════════════ -->
+<footer class="py-4">
+    <!-- footer: etiqueta semántica HTML5 para el pie de página -->
+    <div class="container text-center">
+        <p class="mb-0">© 2025 Sergio Bustos — Construido con 💻 y mucho café</p>
+        <!-- mb-0: elimina el margen inferior para que el footer no tenga espacio extra
+             © es la entidad HTML para el símbolo de copyright -->
+    </div>
+</footer>
+<!-- FIN: Footer -->
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     SCRIPT PRINCIPAL
+     Cargado al FINAL del body (no en el head) para no bloquear
+     el renderizado del HTML. Contiene: toggle de tema oscuro/claro,
+     IntersectionObserver para las animaciones .reveal, y lógica JS adicional.
+══════════════════════════════════════════════════════════════ -->
+<script src="script.js"></script>
+<!-- src="script.js": archivo JS local en la misma carpeta que index.html -->
+
+</body>
+<!-- FIN: body -->
+</html>
+<!-- FIN: documento HTML -->
