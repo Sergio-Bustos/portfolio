@@ -191,11 +191,20 @@
     // Los navegadores bloquean audio sin interacción previa; si el de la
     // entrada se bloquea, suena en el primer toque/clic mientras la
     // animación siga en pantalla. Si falta el archivo, no pasa nada.
-    const makeAudio = (src, vol) => {
-        try { const a = new Audio(src); a.preload = 'auto'; a.volume = vol; return a; } catch (e) { return null; }
+    // Prueba opening.mp4 y, si el navegador no puede reproducirlo, otras extensiones comunes
+    const makeAudio = (name, vol) => {
+        const exts = ['mp4', 'mp3', 'm4a', 'wav', 'ogg'];
+        try {
+            const a = new Audio(); a.preload = 'auto'; a.volume = vol;
+            let i = 0;
+            const next = () => { if (i < exts.length) { a.src = name + '.' + exts[i++]; a.load(); } };
+            a.addEventListener('error', next);
+            next();
+            return a;
+        } catch (e) { return null; }
     };
-    const sfxOpen = makeAudio('opening.mp4', 1);
-    const sfxClick = makeAudio('click.mp4', .7);
+    const sfxOpen = makeAudio('opening', 1);
+    const sfxClick = makeAudio('click', .7);
     const safePlay = (a) => {
         if (!a) return Promise.resolve();
         try { a.currentTime = 0; const r = a.play(); return r && r.catch ? r : Promise.resolve(); } catch (e) { return Promise.resolve(); }
@@ -213,7 +222,7 @@
             const hint = document.createElement('div');
             hint.className = 'pl-hint'; hint.textContent = 'Toca para entrar';
             pre.appendChild(hint);
-            const evs = ['pointerdown', 'keydown', 'touchend'];
+            const evs = ['pointerup', 'touchend', 'click', 'keydown'];
             let done = false;
             const go = (withSound) => {
                 if (done) return; done = true;
