@@ -238,11 +238,9 @@
         });
     }
 
+    // Suena con cualquier clic o toque en la página (botones, óvalos, etiquetas, tarjetas, etc.)
     if (sfxClick) {
-        document.addEventListener('click', (e) => {
-            const t = e.target.closest && e.target.closest('a, button, .btn, .card, .nav-link, .navbar-toggler, [role="button"], summary, label, input, select');
-            if (t) safePlay(sfxClick);
-        }, true);
+        document.addEventListener('click', () => safePlay(sfxClick), true);
     }
 
     if (pre) {
