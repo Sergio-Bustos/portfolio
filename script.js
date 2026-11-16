@@ -202,13 +202,30 @@
     };
 
     const pre = $('.preloader');
+    let gateOpen = false, releaseGate = null;
     if (pre && sfxOpen) {
         safePlay(sfxOpen).catch(() => {
-            const retry = () => { if (document.querySelector('.preloader')) safePlay(sfxOpen); cleanup(); };
+            // Audio bloqueado: la pantalla de carga espera un toque (máx. 7 s) para sonar
+            if (pre.classList.contains('done')) return;
+            gateOpen = true;
+            pre.style.animation = 'none';
+            body.classList.add('pl-wait');
+            const hint = document.createElement('div');
+            hint.className = 'pl-hint'; hint.textContent = 'Toca para entrar';
+            pre.appendChild(hint);
             const evs = ['pointerdown', 'keydown', 'touchend'];
-            const cleanup = () => evs.forEach(ev => window.removeEventListener(ev, retry, true));
-            evs.forEach(ev => window.addEventListener(ev, retry, true));
-            setTimeout(cleanup, 6000);
+            let done = false;
+            const go = (withSound) => {
+                if (done) return; done = true;
+                evs.forEach(ev => window.removeEventListener(ev, onTap, true));
+                if (withSound) safePlay(sfxOpen);
+                hint.remove(); body.classList.remove('pl-wait'); pre.style.animation = '';
+                gateOpen = false;
+                if (releaseGate) releaseGate();
+            };
+            const onTap = () => go(true);
+            evs.forEach(ev => window.addEventListener(ev, onTap, true));
+            setTimeout(() => go(false), 7000);
         });
     }
 
@@ -222,10 +239,12 @@
     if (pre) {
         const t0 = performance.now();
         const finish = () => {
-            setTimeout(() => {
+            const run = () => setTimeout(() => {
                 pre.classList.add('done');
                 setTimeout(() => pre.remove(), 1400);
             }, Math.max(0, 1250 - (performance.now() - t0)));
+            // Si el audio estaba bloqueado, espera al toque antes de abrir la cortina
+            if (gateOpen) { releaseGate = () => { releaseGate = null; run(); }; } else run();
         };
         if (document.readyState === 'complete') finish(); else window.addEventListener('load', finish);
     }
