@@ -187,7 +187,38 @@
 
     // ── 4. Preloader ────────────────────────────────────────────────────
 
+    // ── Sonidos: opening.mp4 (pantalla de carga) y click.mp4 (clics) ────
+    // Los navegadores bloquean audio sin interacción previa; si el de la
+    // entrada se bloquea, suena en el primer toque/clic mientras la
+    // animación siga en pantalla. Si falta el archivo, no pasa nada.
+    const makeAudio = (src, vol) => {
+        try { const a = new Audio(src); a.preload = 'auto'; a.volume = vol; return a; } catch (e) { return null; }
+    };
+    const sfxOpen = makeAudio('opening.mp4', 1);
+    const sfxClick = makeAudio('click.mp4', .7);
+    const safePlay = (a) => {
+        if (!a) return Promise.resolve();
+        try { a.currentTime = 0; const r = a.play(); return r && r.catch ? r : Promise.resolve(); } catch (e) { return Promise.resolve(); }
+    };
+
     const pre = $('.preloader');
+    if (pre && sfxOpen) {
+        safePlay(sfxOpen).catch(() => {
+            const retry = () => { if (document.querySelector('.preloader')) safePlay(sfxOpen); cleanup(); };
+            const evs = ['pointerdown', 'keydown', 'touchend'];
+            const cleanup = () => evs.forEach(ev => window.removeEventListener(ev, retry, true));
+            evs.forEach(ev => window.addEventListener(ev, retry, true));
+            setTimeout(cleanup, 6000);
+        });
+    }
+
+    if (sfxClick) {
+        document.addEventListener('click', (e) => {
+            const t = e.target.closest && e.target.closest('a, button, .btn, .card, .nav-link, .navbar-toggler, [role="button"], summary, label, input, select');
+            if (t) safePlay(sfxClick);
+        }, true);
+    }
+
     if (pre) {
         const t0 = performance.now();
         const finish = () => {
