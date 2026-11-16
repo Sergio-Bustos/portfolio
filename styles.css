@@ -1510,3 +1510,7 @@ footer p {
 @media (hover: none) {
     .cursor-glow, .cursor-ring, .cursor-dot { display: none; }
 }
+
+/* Aviso cuando el navegador bloquea el audio de entrada */
+.pl-hint { position: absolute; bottom: 12%; left: 0; right: 0; text-align: center; font: 500 .8rem/1 var(--font-mono, monospace); letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.75); animation: plPulse 1.4s ease-in-out infinite; }
+body.pl-wait .animate-fade-up, body.pl-wait .hero-title .char, body.pl-wait .hero-section * { animation-play-state: paused !important; }
