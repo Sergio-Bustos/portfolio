@@ -108,6 +108,7 @@ portfolio/
 │   ├── CERTIFICADO DE MARCA PERSONAL.pdf
 │   ├── CERTIFICADO DE SCRUM.pdf
 │   ├── CERTIFICADO DE VARIABLES Y ESTRUCTURAS.pdf
+│   │── CERTIFICADO DE HACKING ÉTICO.pdf
 │   └── CERTIFICADO-DE-POO.pdf
 └── images/
     ├── favicon.ico
@@ -119,6 +120,7 @@ portfolio/
     ├── certificadopoo.png
     ├── certificadopython.png
     ├── certificadoscrum.png
+    ├── certificadohackingético.jpg
     └── certificadotecnico.png
 ```
  
