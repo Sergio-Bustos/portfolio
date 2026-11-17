@@ -54,7 +54,7 @@
         }
 
         function resize() {
-            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            dpr = Math.min(window.devicePixelRatio || 1, finePointer ? 2 : 1.5);
             w = window.innerWidth; h = window.innerHeight;
             canvas.width = w * dpr; canvas.height = h * dpr;
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -67,8 +67,10 @@
             pulses = [];
         }
 
+        const minDt = finePointer ? 0 : 32; // en celulares ~30 fps (se ve igual y gasta la mitad)
         function frame(t) {
             if (!running) return;
+            if (t - last < minDt) { requestAnimationFrame(frame); return; }
             const dt = Math.min(48, t - last) / 16.7; last = t;
             ctx.clearRect(0, 0, w, h);
             const LINK = w < 700 ? 110 : 150;
@@ -187,11 +189,7 @@
 
     // ── 4. Preloader ────────────────────────────────────────────────────
 
-    // ── Sonidos: opening.mp4 (pantalla de carga) y click.mp4 (clics) ────
-    // Los navegadores bloquean audio sin interacción previa; si el de la
-    // entrada se bloquea, suena en el primer toque/clic mientras la
-    // animación siga en pantalla. Si falta el archivo, no pasa nada.
-    // Prueba opening.mp4 y, si el navegador no puede reproducirlo, otras extensiones comunes
+    // ── Sonido de click (click.mp4; si falla, prueba otras extensiones) ──
     const makeAudio = (name, vol) => {
         const exts = ['mp4', 'mp3', 'm4a', 'wav', 'ogg'];
         try {
@@ -203,55 +201,21 @@
             return a;
         } catch (e) { return null; }
     };
-    const sfxOpen = makeAudio('opening', 1);
     const sfxClick = makeAudio('click', .7);
-    const safePlay = (a) => {
-        if (!a) return Promise.resolve();
-        try { a.currentTime = 0; const r = a.play(); return r && r.catch ? r : Promise.resolve(); } catch (e) { return Promise.resolve(); }
-    };
+    if (sfxClick) {
+        document.addEventListener('click', () => {
+            try { sfxClick.currentTime = 0; const r = sfxClick.play(); if (r && r.catch) r.catch(() => {}); } catch (e) { /* sin audio */ }
+        }, true);
+    }
 
     const pre = $('.preloader');
-    let gateOpen = false, releaseGate = null;
-    if (pre && sfxOpen) {
-        safePlay(sfxOpen).catch(() => {
-            // Audio bloqueado: la pantalla de carga espera un toque (máx. 7 s) para sonar
-            if (pre.classList.contains('done')) return;
-            gateOpen = true;
-            pre.style.animation = 'none';
-            body.classList.add('pl-wait');
-            const hint = document.createElement('div');
-            hint.className = 'pl-hint'; hint.textContent = 'Toca para entrar';
-            pre.appendChild(hint);
-            const evs = ['pointerup', 'touchend', 'click', 'keydown'];
-            let done = false;
-            const go = (withSound) => {
-                if (done) return; done = true;
-                evs.forEach(ev => window.removeEventListener(ev, onTap, true));
-                if (withSound) safePlay(sfxOpen);
-                hint.remove(); body.classList.remove('pl-wait'); pre.style.animation = '';
-                gateOpen = false;
-                if (releaseGate) releaseGate();
-            };
-            const onTap = () => go(true);
-            evs.forEach(ev => window.addEventListener(ev, onTap, true));
-            setTimeout(() => go(false), 7000);
-        });
-    }
-
-    // Suena con cualquier clic o toque en la página (botones, óvalos, etiquetas, tarjetas, etc.)
-    if (sfxClick) {
-        document.addEventListener('click', () => safePlay(sfxClick), true);
-    }
-
     if (pre) {
         const t0 = performance.now();
         const finish = () => {
-            const run = () => setTimeout(() => {
+            setTimeout(() => {
                 pre.classList.add('done');
                 setTimeout(() => pre.remove(), 1400);
             }, Math.max(0, 1250 - (performance.now() - t0)));
-            // Si el audio estaba bloqueado, espera al toque antes de abrir la cortina
-            if (gateOpen) { releaseGate = () => { releaseGate = null; run(); }; } else run();
         };
         if (document.readyState === 'complete') finish(); else window.addEventListener('load', finish);
     }
@@ -365,6 +329,13 @@
     $$('.section-label').forEach(l => { if (!l.closest('.reveal')) labelObserver.observe(l); });
 
 
+    // Pausa las animaciones infinitas de las secciones que no se ven (ahorra batería y evita trabas)
+    if ('IntersectionObserver' in window) {
+        const offIO = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('offscreen', !e.isIntersecting)), { rootMargin: '120px 0px' });
+        $$('.hero-section, .contact-section').forEach(el => offIO.observe(el));
+    }
+
+
     // ── 7. Scroll: progreso, navbar, nav activo, timeline, parallax ─────
 
     const navbar = $('.navbar');
@@ -374,24 +345,24 @@
     const heroContent = $('.hero-content');
     let ticking = false;
 
+    let lastY = -1, lastW = 0;
     function update() {
         ticking = false;
         const y = window.scrollY;
+        if (y === lastY && innerWidth === lastW) return;
+        lastY = y; lastW = innerWidth;
+        // 1) lecturas
         const max = root.scrollHeight - innerHeight;
+        const tr = timeline ? timeline.getBoundingClientRect() : null;
+        let currentId = null;
+        for (const s of sections) { if (s.getBoundingClientRect().top <= innerHeight * 0.4) currentId = s.id; }
+        // 2) escrituras
         progressBar.style.setProperty('--p', max > 0 ? (y / max).toFixed(4) : 0);
         if (navbar) navbar.classList.toggle('scrolled', y > 30);
-
         const sy = Math.min(y, 1200);
         if (heroContent) heroContent.style.setProperty('--sy', sy);
         if (aurora) aurora.style.setProperty('--sy', sy);
-
-        if (timeline) {
-            const r = timeline.getBoundingClientRect();
-            timeline.style.setProperty('--tp', clamp((innerHeight * .62 - r.top) / r.height, 0, 1).toFixed(4));
-        }
-
-        let currentId = null;
-        sections.forEach(s => { if (s.getBoundingClientRect().top <= innerHeight * 0.4) currentId = s.id; });
+        if (tr) timeline.style.setProperty('--tp', clamp((innerHeight * .62 - tr.top) / tr.height, 0, 1).toFixed(4));
         navLinks.forEach(l => l.classList.toggle('active', !!currentId && l.getAttribute('href') === '#' + currentId));
     }
     const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
