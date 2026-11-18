@@ -1,0 +1,56 @@
+/* ============================================================
+   FORMULARIO DE CONTACTO — mismo estilo oscuro/cristal de la sección
+   ============================================================ */
+.cf-card {
+    position: relative; max-width: 640px; margin: 0 auto 2rem; padding: clamp(1.2rem, 3.5vw, 2rem);
+    text-align: left; border-radius: 28px; overflow: hidden; isolation: isolate;
+    background: linear-gradient(145deg, rgba(255,255,255,.085), rgba(255,255,255,.025));
+    border: 1px solid rgba(255,255,255,.16);
+    box-shadow: 0 30px 70px -30px rgba(0,0,0,.6), 0 0 60px -26px var(--glow);
+}
+.cf-card::before {
+    content: ''; position: absolute; inset: -1px; z-index: -1; border-radius: inherit; padding: 1px; opacity: .55;
+    background: conic-gradient(from var(--ang), transparent 0 60%, var(--accent), var(--accent2), var(--pink), transparent 95%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+            mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    animation: spinAng 9s linear infinite;
+}
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.cf-field { display: block; margin-bottom: 1rem; }
+.cf-field > span {
+    display: block; margin-bottom: .45rem; font: 600 .72rem/1 var(--font-mono, monospace);
+    letter-spacing: .14em; text-transform: uppercase; color: rgba(240,237,230,.6); transition: color .3s;
+}
+.cf-field:focus-within > span { color: var(--accent3); }
+.cf-field input, .cf-field textarea {
+    width: 100%; padding: .85rem 1.05rem; font: 500 .97rem/1.5 var(--font-body); color: #fff;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; resize: vertical;
+    transition: border-color .3s, box-shadow .3s, background .3s, transform .4s var(--spring);
+}
+.cf-field textarea { min-height: 130px; }
+.cf-field input::placeholder, .cf-field textarea::placeholder { color: rgba(240,237,230,.34); }
+.cf-field input:hover, .cf-field textarea:hover { background: rgba(255,255,255,.085); }
+.cf-field input:focus, .cf-field textarea:focus {
+    outline: none; background: rgba(255,255,255,.1); border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--glow); transform: translateY(-2px);
+}
+.cf-field.bad input, .cf-field.bad textarea { border-color: #ff6b81; animation: cfShake .45s; }
+.cf-hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+.cf-send { width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: .7rem; margin-top: .4rem; }
+.cf-send i { transition: transform .5s var(--spring); }
+.cf-send:hover i { transform: translate(5px, -5px) rotate(8deg) scale(1.15); }
+.cf-send:disabled { opacity: .75; cursor: progress; }
+.cf-send.sending i { animation: spin 1s linear infinite; }
+
+.cf-status { min-height: 1.4rem; margin: .9rem 0 0; font: 600 .86rem/1.4 var(--font-body); text-align: center; color: rgba(240,237,230,.7); }
+.cf-status.ok { color: var(--ok); animation: cfPop .6s var(--spring); }
+.cf-status.err { color: #ff8a9b; animation: cfShake .45s; }
+
+.cf-or { display: flex; align-items: center; gap: 1rem; max-width: 460px; margin: 0 auto 1.6rem; }
+.cf-or::before, .cf-or::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent); }
+.cf-or span { font: 500 .7rem/1 var(--font-mono, monospace); letter-spacing: .16em; text-transform: uppercase; color: rgba(240,237,230,.45); }
+
+@keyframes cfShake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+@keyframes cfPop { from { opacity: 0; transform: scale(.85) translateY(8px); } }
+@media (max-width: 575.98px) { .cf-row { grid-template-columns: 1fr; gap: 0; } }
