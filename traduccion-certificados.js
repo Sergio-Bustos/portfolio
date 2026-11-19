@@ -145,5 +145,7 @@ window.PB_DICT = {
   "Seguridad y salud en el trabajo": "Occupational health and safety",
   "Inglés": "English",
   "Herramientas": "Tools",
-  "Certificado Técnico en Programación de Software": "Certificate: Software Programming Technician"
+  "Certificado Técnico en Programación de Software": "Certificate: Software Programming Technician",
+  "Activar o silenciar música": "Turn music on or off"
+
 };
