@@ -37,6 +37,7 @@
 
     <link href="styles.css" rel="stylesheet">
     <link href="contacto.css" rel="stylesheet">
+    <link href="musica.css" rel="stylesheet">
     <!-- Importa la hoja de estilos principal del portafolio (variables, temas, componentes personalizados) -->
 
     
@@ -82,6 +83,11 @@
                      id="themeToggle": referenciado por script.js para manejar el click -->
                 <i class="bi bi-sun-fill theme-icon" id="themeIcon"></i>
                 <!-- Ícono de sol de Bootstrap Icons. script.js cambia entre bi-sun-fill y bi-moon-fill según el tema activo -->
+            </button>
+
+            <!-- Música de fondo (song.mp4): barras animadas = sonando, puntos = en silencio. Lo controla musica.js -->
+            <button type="button" class="music-toggle" id="musicToggle" aria-label="Activar o silenciar música" aria-pressed="false">
+                <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
             </button>
 
             <button class="navbar-toggler border-0" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
@@ -1033,6 +1039,7 @@
      el renderizado del HTML. Contiene: toggle de tema oscuro/claro,
      IntersectionObserver para las animaciones .reveal, y lógica JS adicional.
 ══════════════════════════════════════════════════════════════ -->
+<script src="musica.js"></script>
 <script src="script.js"></script>
 <script src="contacto.js"></script>
 <!-- src="script.js": archivo JS local en la misma carpeta que index.html -->
