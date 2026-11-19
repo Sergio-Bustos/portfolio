@@ -127,5 +127,12 @@ window.PB_DICT = {
   "Completa todos los campos con un correo válido.": "Please fill in every field with a valid email.",
   "Falta configurar la clave del formulario.": "The form key is not configured yet.",
   "o escríbeme directo": "or reach me directly",
-  "Idioma / Language": "Idioma / Language"
+  "Idioma / Language": "Idioma / Language",
+  "Bienvenido": "Welcome",
+  "Elige cómo quieres explorar mi portafolio": "Choose how you want to explore my portfolio",
+  "Entrar con música": "Enter with music",
+  "Entrar sin música": "Enter without music",
+  "Puedes cambiarlo cuando quieras con el botón de sonido de la barra.": "You can change it any time with the sound button in the navbar.",
+  "Activar o silenciar música": "Turn music on or off",
+  "Elegir sonido": "Choose sound"
 };
