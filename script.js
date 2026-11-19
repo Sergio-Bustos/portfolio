@@ -16,6 +16,11 @@
     const $ = (s, c = document) => c.querySelector(s);
     const $$ = (s, c = document) => [...c.querySelectorAll(s)];
 
+    // Música de fondo en las demás páginas (en la principal ya se carga desde el HTML)
+    if (!document.querySelector('script[src$="musica.js"]')) {
+        const m = document.createElement('script'); m.src = 'musica.js'; document.head.appendChild(m);
+    }
+
     // Idioma ES / EN (botón en la barra + traducción de la página)
     { const l = document.createElement('script'); l.src = 'idiomas.js'; document.head.appendChild(l); }
 
@@ -213,14 +218,19 @@
 
     const pre = $('.preloader');
     if (pre) {
-        const t0 = performance.now();
-        const finish = () => {
-            setTimeout(() => {
-                pre.classList.add('done');
-                setTimeout(() => pre.remove(), 1400);
-            }, Math.max(0, 1250 - (performance.now() - t0)));
+        // La cortina espera a que la persona elija "con música / sin música" (musica.js)
+        const begin = () => {
+            const t0 = performance.now();
+            const finish = () => {
+                setTimeout(() => {
+                    pre.classList.add('done');
+                    setTimeout(() => pre.remove(), 1400);
+                }, Math.max(0, 1250 - (performance.now() - t0)));
+            };
+            if (document.readyState === 'complete') finish(); else window.addEventListener('load', finish);
         };
-        if (document.readyState === 'complete') finish(); else window.addEventListener('load', finish);
+        if (window.PBGate && window.PBGate.open) document.addEventListener('pb-gate-done', begin, { once: true });
+        else begin();
     }
 
 
