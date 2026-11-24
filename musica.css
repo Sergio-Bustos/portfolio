@@ -54,7 +54,7 @@ body.light-mode .music-toggle { color: var(--accent2); }
 @keyframes sgBar { 0%, 100% { height: 6px; } 30% { height: 44px; } 55% { height: 16px; } 80% { height: 34px; } }
 @keyframes sgUp { from { opacity: 0; transform: translateY(34px) scale(.95); } }
 
-.sg-title { margin: 0; font-family: var(--font-head); font-weight: 700; font-size: clamp(1.9rem, 6vw, 2.6rem); letter-spacing: -.03em; }
+.sg-title { margin: 0; font-family: var(--font-head); font-weight: 700; font-size: clamp(1.9rem, 6vw, 2.6rem); letter-spacing: -.03em; color: #fff !important; }
 .sg-text { margin: 0; color: rgba(255, 255, 255, .72); line-height: 1.6; }
 .sg-btn {
     position: relative; display: inline-flex; align-items: center; justify-content: center; gap: .6rem; width: min(320px, 100%);
